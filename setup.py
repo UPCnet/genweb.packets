@@ -36,7 +36,7 @@ tests_require = ['zope.testing']
 
 setup(name='genweb.packets',
       version=version,
-      description="Continguts "Empaquetats"",
+      description="Continguts empaquetats",
       long_description=long_description,
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
