@@ -20,6 +20,9 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
+  <adapter
+    factory=".adapter.EstudisUPC"
+    name="estudis_upc"
+    />
 
 </configure>

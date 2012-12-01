@@ -1,2 +1,1 @@
-# -*- extra stuff goes here -*-
-from packet import Ipacket
+from packet import Ipacket, IpacketDefinition

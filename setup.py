@@ -50,7 +50,7 @@ setup(name='genweb.packets',
       url='https://github.com/upcnet/genweb.packets',
       license='gpl',
       packages=find_packages('src'),
-      package_dir = {'': 'src'},
+      package_dir={'': 'src'},
       namespace_packages=['genweb'],
       include_package_data=True,
       zip_safe=False,
@@ -65,6 +65,6 @@ setup(name='genweb.packets',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      setup_requires=["PasteScript"],
-      paster_plugins=["templer.localcommands"],
+      # setup_requires=["PasteScript"],
+      # paster_plugins=["templer.localcommands"],
       )

@@ -7,4 +7,18 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
+  <browser:page
+    for="genweb.packets.interfaces.packet.Ipacket"
+    name="view"
+    class=".views.packetView"
+    permission="zope2.View"
+    />
+
+  <browser:page
+    for="genweb.packets.interfaces.packet.Ipacket"
+    name="edit"
+    class=".views.packetEdit"
+    permission="zope2.View"
+    />
+
 </configure>
