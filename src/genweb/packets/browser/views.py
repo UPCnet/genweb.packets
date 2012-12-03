@@ -1,7 +1,14 @@
 from zope.component import getAdapter, getAdapters
+from zope.annotation.interfaces import IAnnotations
+
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
+from genweb.core import utils
 from genweb.packets.interfaces import IpacketDefinition
+from genweb.packets import PACKETS_KEY
+
+from pyquery import PyQuery as pq
 
 
 class packetView(BrowserView):
@@ -10,6 +17,25 @@ class packetView(BrowserView):
 
     def __call__(self):
         return self.template()
+
+    def getType(self):
+        annotations = IAnnotations(self.context)
+        return annotations.get(PACKETS_KEY + '.type', None)
+
+    def isAlreadyConfigured(self):
+        annotations = IAnnotations(self.context)
+        if annotations.get(PACKETS_KEY + '.type', None):
+            return True
+        else:
+            return False
+
+    def getPacket(self):
+        packet_type = self.getType()
+        adapter = getAdapter(self.context, IpacketDefinition, packet_type)
+        adapter.packet_fields.update({'lang': utils.pref_lang()})
+        url = adapter.URL_schema % adapter.packet_fields
+        doc = pq(url)
+        return doc('#content').html()
 
 
 class packetEdit(BrowserView):
@@ -26,8 +52,9 @@ class packetEdit(BrowserView):
             form = self.request.form
             packet_type = form.get("packet_type")
             adapter = getAdapter(self.context, IpacketDefinition, packet_type)
-            values = {field:form[field] for field in adapter.fields}
-            adapter.set_info(values)
+            field_values = {field:form[field] for field in adapter.fields}
+            adapter.packet_fields = field_values
+            adapter.packet_type = packet_type
             return self.request.response.redirect(self.context.absolute_url())
         else:
             return self.template()

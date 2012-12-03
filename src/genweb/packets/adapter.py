@@ -3,7 +3,7 @@ from zope.interface import implements
 from zope.component import adapts
 from zope.annotation.interfaces import IAnnotations
 
-from .interfaces.packet import Ipacket, IpacketDefinition
+from .interfaces import Ipacket, IpacketDefinition
 from genweb.packets import PACKETS_KEY
 from genweb.packets import packetsMessageFactory as _
 
@@ -18,18 +18,31 @@ class EstudisUPC(object):
         self.description = "Informacio UPC sobre un estudi especific"
         self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?id_estudi=%(id_estudi)s&lang=%(lang)s'
         self.fields = [_(u'id_estudi')]
-        annotations = IAnnotations(context)
         self.default = dict([(field, '') for field in self.fields])
-        self._info = annotations.setdefault(PACKETS_KEY, PersistentDict(self.default))
+        annotations = IAnnotations(context)
+        self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
+        self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
 
-    def get_info(self):
+    def get_packet_fields(self):
         annotations = IAnnotations(self.context)
-        self._info = annotations.setdefault(PACKETS_KEY, PersistentDict(self.default))
-        return self._info
+        self._packet_fields = annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
+        return self._packet_fields
 
-    def set_info(self, value):
+    def set_packet_fields(self, value):
         annotations = IAnnotations(self.context)
-        annotations.setdefault(PACKETS_KEY, PersistentDict(self.default))
-        annotations[PACKETS_KEY] = value
+        annotations.setdefault(PACKETS_KEY + '.fields', PersistentDict(self.default))
+        annotations[PACKETS_KEY + '.fields'] = value
 
-    info = property(get_info, set_info)
+    packet_fields = property(get_packet_fields, set_packet_fields)
+
+    def get_packet_type(self):
+        annotations = IAnnotations(self.context)
+        self._type = annotations.setdefault(PACKETS_KEY + '.type', '')
+        return self._type
+
+    def set_packet_type(self, value):
+        annotations = IAnnotations(self.context)
+        annotations.setdefault(PACKETS_KEY + '.type', '')
+        annotations[PACKETS_KEY + '.type'] = value
+
+    packet_type = property(get_packet_type, set_packet_type)

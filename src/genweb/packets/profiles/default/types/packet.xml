@@ -29,8 +29,8 @@
     url_expr="string:${object_url}/edit" visible="True">
     <permission value="Modify portal content" />
   </action>
-  <action title="Paquets" action_id="paquets" category="object" condition_expr=""
-    url_expr="string:${object_url}/@@paquets" visible="True">
+  <action title="Configure" action_id="configure" category="object" condition_expr=""
+    url_expr="string:${object_url}/@@configure" visible="True">
     <permission value="Modify portal content" />
   </action>
 </object>
