@@ -5,6 +5,7 @@ from zope.annotation.interfaces import IAnnotations
 
 from .interfaces.packet import Ipacket, IpacketDefinition
 from genweb.packets import PACKETS_KEY
+from genweb.packets import packetsMessageFactory as _
 
 
 class EstudisUPC(object):
@@ -16,7 +17,7 @@ class EstudisUPC(object):
         self.title = "Estudis UPC"
         self.description = "Informacio UPC sobre un estudi especific"
         self.URL_schema = 'http://www.upc.edu/grau/fitxa_grau.php?id_estudi=%(id_estudi)s&lang=%(lang)s'
-        self.fields = ['id_estudi']
+        self.fields = [_(u'id_estudi')]
         annotations = IAnnotations(context)
         self.default = dict([(field, '') for field in self.fields])
         self._info = annotations.setdefault(PACKETS_KEY, PersistentDict(self.default))

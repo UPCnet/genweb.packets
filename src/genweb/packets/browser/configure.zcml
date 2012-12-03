@@ -16,7 +16,7 @@
 
   <browser:page
     for="genweb.packets.interfaces.packet.Ipacket"
-    name="edit"
+    name="paquets"
     class=".views.packetEdit"
     permission="zope2.View"
     />

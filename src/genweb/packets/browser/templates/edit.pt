@@ -16,21 +16,52 @@
   </div> -->
 </head>
 
-<body class="manage-homeportlets">
-  <div metal:fill-slot="main">
-    <tal:block repeat="packet view/getAvailablePacketsInfo">
+<body class="packet-edit">
+ <div metal:fill-slot="main">
+
+  <section tal:define="packets view/getAvailablePacketsInfo"
+           tal:condition="packets">
+    <tal:available repeat="packet packets">
       <div class="row-fluid">
-        <div class="span4">
+        <div class="span3">
           <span tal:content="python:packet[1].title"></span>
         </div>
         <div class="span7">
           <span tal:content="python:packet[1].description"></span>
         </div>
-        <div class="span1">
-          <button class="btn">Select</button>
+        <div class="span2">
+          <a tal:attributes="href python:'#' + packet[0]" role="button" class="btn" data-toggle="modal">Select</a>
         </div>
       </div>
-    </tal:block>
-  </div>
+    </tal:available>
+
+    <tal:configmodals repeat="packet packets">
+      <div tal:attributes="id python:packet[0]">
+        <form method="POST"
+              tal:attributes="action python:context.absolute_url() + '/@@paquets'">
+          <input type="hidden" name="packet_type"
+                 tal:attributes="value python:packet[0]" />
+          <!-- id="myModal" class="modal hide fade"> -->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Modal header</h3>
+          </div>
+          <div class="modal-body">
+            <tal:fields repeat="field python:packet[1].fields">
+                <label tal:content="field">Label name</label>
+                <input type="text"
+                       tal:attributes="name python:field.lower()" />
+            </tal:fields>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="btn">Close</a>
+            <button type="submit" href="#" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </tal:configmodals>
+
+  </section>
+ </div>
 </body>
 </html>
