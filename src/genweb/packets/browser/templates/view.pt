@@ -23,7 +23,9 @@
     </tal:alreadyconfigured>
 
     <tal:alreadyconfigured condition="not: view/isAlreadyConfigured">
-      This packet is not configured yet. Please, do it in the "configure" tab.
+      <tal:message i18n:translate="">
+        This packet is not configured yet. Please, do it in the 'configure' tab.
+      </tal:message>
     </tal:alreadyconfigured>
   </div>
 </body>

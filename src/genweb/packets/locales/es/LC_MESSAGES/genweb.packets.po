@@ -19,3 +19,11 @@ msgstr ""
 #. "id_estudi"
 msgid "id_estudi"
 msgstr "Identificador del estudio"
+
+#. "Configure"
+msgid "Configure"
+msgstr "Configura"
+
+#. "Configure message"
+msgid "This packet is not configured yet. Please, do it in the 'configure' tab."
+msgstr "Este contenido empaquetado aún no está configurado. Por favor, acceda a la pestaña 'Configura' para hacerlo."
