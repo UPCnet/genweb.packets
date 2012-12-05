@@ -52,7 +52,7 @@ class packetEdit(BrowserView):
             form = self.request.form
             packet_type = form.get("packet_type")
             adapter = getAdapter(self.context, IpacketDefinition, packet_type)
-            field_values = {field:form[field] for field in adapter.fields}
+            field_values = dict([(field, form[field]) for field in adapter.fields])
             adapter.packet_fields = field_values
             adapter.packet_type = packet_type
             return self.request.response.redirect(self.context.absolute_url())
@@ -60,5 +60,4 @@ class packetEdit(BrowserView):
             return self.template()
 
     def getAvailablePacketsInfo(self):
-        # return [dict(packet_type, name=packet_type[0], title=packet_type[1].title, description=packet_type[1].description) for packet_type in self.available_ptypes]
         return self.available_ptypes
