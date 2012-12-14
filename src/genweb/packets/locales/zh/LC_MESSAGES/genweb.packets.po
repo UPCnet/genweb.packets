@@ -16,13 +16,13 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: genweb.packets\n"
 
+#. "packet"
+msgid "packet"
+msgstr "Empaquetat"
+
 #. "id_estudi"
 msgid "id_estudi"
 msgstr "Identificador de l'estudi"
-
-#. "Configure"
-msgid "Configure"
-msgstr "Configura"
 
 #. "Configure message"
 msgid "This packet is not configured yet. Please, do it in the 'configure' tab."

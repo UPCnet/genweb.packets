@@ -36,12 +36,12 @@
     </tal:available>
 
     <tal:configmodals repeat="packet packets">
-      <div tal:attributes="id python:packet[0]">
+      <div class="modal hide fade"
+           tal:attributes="id python:packet[0]">
         <form method="POST"
               tal:attributes="action python:context.absolute_url() + '/@@configure'">
           <input type="hidden" name="packet_type"
                  tal:attributes="value python:packet[0]" />
-          <!-- id="myModal" class="modal hide fade"> -->
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h3>Modal header</h3>

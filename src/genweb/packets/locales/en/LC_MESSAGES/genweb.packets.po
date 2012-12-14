@@ -16,6 +16,10 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: genweb.packets\n"
 
+#. "packet"
+msgid "packet"
+msgstr "Packed content"
+
 #. "id_estudi"
 msgid "id_estudi"
 msgstr "Grade ID"
