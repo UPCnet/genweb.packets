@@ -23,8 +23,27 @@
       />
 
   <adapter
-    factory=".adapter.EstudisUPC"
-    name="estudis_upc"
+    factory=".adapters.FitxaGrau"
+    name="fitxa_grau"
     />
 
+  <adapter
+    factory=".adapters.PlaEstudisGrau"
+    name="pla_grau"
+    />
+
+  <adapter
+    factory=".adapters.FitxaMaster"
+    name="fitxa_master"
+    />
+
+  <adapter
+    factory=".adapters.GrupsRecercaDepartament"
+    name="grups_recerca"
+    />
+
+  <adapter
+    factory=".adapters.InvestigadorsGrupRecercaDepartament"
+    name="grups_recerca_people"
+    />
 </configure>
