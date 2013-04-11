@@ -35,7 +35,7 @@ class packetView(BrowserView):
         adapter.packet_fields.update({'lang': utils.pref_lang()})
         url = adapter.URL_schema % adapter.packet_fields
         doc = pq(url)
-        return doc('#content').html()
+        return doc('#content').outerHtml()
 
 
 class packetEdit(BrowserView):
