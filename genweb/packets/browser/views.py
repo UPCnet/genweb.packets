@@ -40,7 +40,7 @@ class packetView(BrowserView):
         raw_html = requests.get(url)
         clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode('utf-8'))
         doc = pq(clean_html)
-        return doc('#content').html()
+        return doc('#content').outerHtml()
 
 
 class packetEdit(BrowserView):
