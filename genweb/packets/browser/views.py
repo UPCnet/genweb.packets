@@ -10,6 +10,9 @@ from genweb.packets import PACKETS_KEY
 
 from pyquery import PyQuery as pq
 
+import re
+import requests
+
 
 class packetView(BrowserView):
 
@@ -34,8 +37,10 @@ class packetView(BrowserView):
         adapter = getAdapter(self.context, IpacketDefinition, packet_type)
         adapter.packet_fields.update({'lang': utils.pref_lang()})
         url = adapter.URL_schema % adapter.packet_fields
-        doc = pq(url)
-        return doc('#content').outerHtml()
+        raw_html = requests.get(url)
+        clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode('utf-8'))
+        doc = pq(clean_html)
+        return doc('#content').html()
 
 
 class packetEdit(BrowserView):
