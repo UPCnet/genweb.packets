@@ -42,6 +42,9 @@ class packetView(BrowserView):
         doc = pq(clean_html)
         return doc('#content').outerHtml()
 
+    def getTitle(self):
+         return self.context.Title()
+
 
 class packetEdit(BrowserView):
 

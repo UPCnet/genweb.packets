@@ -18,7 +18,7 @@
 
 <body class="packet-edit">
  <div metal:fill-slot="main">
-
+  <div i18n:translate="packet_help" class="lead">Us oferim continguts ja existents al web UPC, que consulten les dades dels <strong>sistemes d'informació de PRISMA, DRAC i del Servei de Comunicació</strong>, perquè incorporeu al vostre web pàgines ja maquetades amb informació d’estudis i de la producció científica. Aquesta és la proposta per ajudar-vos a mantenir els vostres continguts actualitzats.<br /><br />Consulteu tota la informació referent als <a href="https://www.upc.edu/comunicacio/www/continguts-empaquetats">Continguts UPC</a>.</div>
   <section tal:define="packets view/getAvailablePacketsInfo"
            tal:condition="packets">
     <tal:available repeat="packet packets">

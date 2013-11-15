@@ -5,7 +5,7 @@ version = '1.0b1'
 
 setup(name='genweb.packets',
       version=version,
-      description="Continguts empaquetats",
+      description="Continguts UPC",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from
@@ -19,7 +19,7 @@ setup(name='genweb.packets',
         "Programming Language :: Python :: 2.7",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-      keywords='genweb upc packets empaquetats',
+      keywords='genweb upc packets contingutsupc',
       author='UPCnet Plone Team',
       author_email='plone.team@upcnet.es',
       url='https://github.com/upcnet/genweb.packets',

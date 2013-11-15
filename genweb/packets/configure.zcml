@@ -24,7 +24,7 @@
       name="default"
       title="Genweb Packets"
       directory="profiles/default"
-      description="Continguts empaquetats"
+      description="Continguts UPC"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 

@@ -18,12 +18,12 @@ msgstr ""
 
 #. "packet"
 msgid "packet"
-msgstr "Empaquetat"
+msgstr "UPC content"
 
 #. "id_estudi"
 msgid "id_estudi"
-msgstr "Identificador de l'estudi"
+msgstr "Studies identifier"
 
 #. "Configure message"
 msgid "This packet is not configured yet. Please, do it in the 'configure' tab."
-msgstr "Aquest contingut empaquetat encara no està configurat. Accediu a la pestanya 'Configura' per fer-ho."
+msgstr "This UPC content is not configured yet. Go to the tab 'Configure'."
