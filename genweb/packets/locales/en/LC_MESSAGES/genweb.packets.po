@@ -26,10 +26,11 @@ msgstr "Grade ID"
 
 #. "Configure message"
 msgid "This packet is not configured yet. Please, do it in the 'configure' tab."
-msgstr ""
+msgstr "This packet is not configured yet. Please, do it in the <a href=configure>Configure</a> tab."
 
 msgid "packet_help"
-msgstr "Us oferim continguts ja existents al web UPC, que consulten les dades dels sistemes d'informació de PRISMA, DRAC i del Servei de Comunicació, perquè incorporeu al vostre web pàgines ja maquetades amb informació d’estudis i de la producció científica. Aquesta és la proposta per ajudar-vos a mantenir els vostres continguts actualitzats.<br /><br />Consulteu tota la informació referent als <a href=\"https://www.upc.edu/comunicacio/www/continguts-empaquetats\">continguts empaquetats</a>"
+msgstr "We offer existing content on the web UPC, view data from the <strong>PRISMA information systems, DRAC and Communication Service,</strong> you may be able to incorporate them to the web
+  layouts already created with information from studies and scientific production. This is the proposal to help you keep your files updated.<br /><br />See all information concerning the <a href=\"https://www.upc.edu/comunicacio/www/continguts-empaquetats\">UPC contents.</a>"
 
 msgid "Fitxa de grau"
 msgstr ""
