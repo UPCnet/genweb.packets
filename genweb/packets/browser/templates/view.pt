@@ -5,38 +5,52 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="genweb.packets">
 <head>
-  <div metal:fill-slot="javascript_head_slot" tal:omit-tag="">
-    <!-- <script type="text/javascript"
-      tal:attributes="src string:${context/absolute_url}/++genweb++static/js/alertify.min.js">
-    </script> -->
-  </div>
-<!--   <div metal:fill-slot="style_slot" tal:omit-tag="">
-    <link rel="stylesheet"
-      tal:attributes="href string:${context/absolute_url}/++genweb++static/css/alertify.css">
-  </div> -->
+  <div metal:fill-slot="javascript_head_slot" tal:omit-tag=""> </div>
 </head>
 
 <body class="packets-view">
-    <div metal:fill-slot="main">
-        <tal:alreadyconfigured condition="view/isAlreadyConfigured">
-            <div>
-                <h1 id="parent-fieldname-title" class="documentFirstHeading" tal:content="view/getTitle">
-                    Title
-                </h1>
-            </div>
-            <tal:packet replace="structure view/getPacket"></tal:packet>
-        </tal:alreadyconfigured>
+  <div metal:fill-slot="main">
+
+    <tal:alreadyconfigured condition="view/isAlreadyConfigured" tal:define="packet view/selectedPacket">
+      
+      <tal:withoutValue tal:condition="not: packet/state">
+        <tal:message i18n:translate="">
+          This packet is not configured yet. Please, do it in the 'configure' tab.
+        </tal:message>
+      </tal:withoutValue>
+
+      <tal:withValue tal:condition="packet/state">
+        <div>
+          <h1 id="parent-fieldname-title" class="documentFirstHeading" tal:content="view/getTitle">
+            Title
+          </h1>
+        </div>
+        <div>
+          <h2 style="text-align: right;">Selected value: 
+            <span i18n:translate="" tal:content="packet/packet_key"></span>
+              with id: 
+            <span tal:content="packet/value"></span>
+          </h2>
+        </div>
+        <tal:packet replace="structure view/getPacket"></tal:packet>
+      </tal:withValue>
+
+    </tal:alreadyconfigured>  
 
     <tal:alreadyconfigured condition="not: view/isAlreadyConfigured">
-        <div>
-            <h1 id="parent-fieldname-title" class="documentFirstHeading" tal:content="view/getTitle">
-                Title
-            </h1>
-        </div>
+    
+      <div>
+        <h1 id="parent-fieldname-title" class="documentFirstHeading" tal:content="view/getTitle">
+          Title
+        </h1>
+      </div>
+    
       <tal:message i18n:translate="">
         This packet is not configured yet. Please, do it in the 'configure' tab.
       </tal:message>
+
     </tal:alreadyconfigured>
   </div>
+
 </body>
 </html>

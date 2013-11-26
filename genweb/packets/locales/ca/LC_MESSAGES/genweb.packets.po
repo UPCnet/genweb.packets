@@ -35,31 +35,31 @@ msgid "Fitxa de grau"
 msgstr "Fitxa de grau"
 
 msgid "Informació sobre un estudi d'un grau específic"
-msgstr "Fitxa amb la informació bàsica d’un grau. Heu d’indicar el codi UPC de l’estudi  que l’identifica a PRISMA. Exemple: el codi UPC del Grau en Enginyeria Física és 23010611"
+msgstr "Fitxa amb la informació bàsica d'un grau. Indiqueu el codi UPC de l’estudi que l’identifica a PRISMA. Exemple: Grau en Enginyeria Física > 23010611."
 
 msgid "Pla d'estudis de grau"
 msgstr "Pla d'estudis de grau"
 
 msgid "Informació sobre el pla d'estudis d'un grau específic"
-msgstr "Pla d’estudis d’un grau amb accés a les guies docents. Heu d’indicar el codi UPC de l’estudi  que l’identifica a PRISMA. Exemple: el codi UPC del Grau en Enginyeria Física és 23010611"
+msgstr "Pla d'estudis d'un grau amb accés a les guies docents. Indiqueu el codi UPC de l’estudi que l’identifica a PRISMA. Exemple: Grau en Enginyeria Física > 23010611."
 
 msgid "Fitxa de màster"
 msgstr "Fitxa de màster"
 
 msgid "Informació sobre un màster específic"
-msgstr "Fitxa amb la informació bàsica d’un àster. Heu d’indicar el codi UPC de l’estudi  que l’identifica a PRISMA. Exemple: el codi UPC del Màster és "
+msgstr "Fitxa amb la informació bàsica d’un Màster. Heu d’indicar el codi UPC de l’estudi que l’identifica a PRISMA. Exemple: el codi UPC del Màster és XXXXX."
 
 msgid "Grups de recerca"
 msgstr "Grups de recerca"
 
 msgid "Grups de recerca d'un departament específic"
-msgstr "Llistat dels grups de recerca que pertanyen a un departament. Heu d’indicar el codi UPC del departament. Exemple:  el codi del Departament d’Enginyeria Electrònica és 710"
+msgstr "Llistat dels grups de recerca que pertanyen a un departament. Indiqueu el codi UPC del departament. Exemple: Departament d’Enginyeria Electrònica > 710."
 
 msgid "Investigadors d'un grup de recerca"
 msgstr "Investigadors d'un grup de recerca"
 
 msgid "Investigadors d'un grup de recerca d'un departament específic"
-msgstr "Llistat dels investigadors d’un grup de recerca. Heu d’indicar l’acrònim del grup de recerca definit a DRAC. Exemple: l’acrònim del Grup de recerca en Arquitectura, energia i medi ambient és AIEM"
+msgstr "Llistat dels investigadors d'un grup de recerca. Indiqueu l’acrònim del grup de recerca definit a DRAC. Exemple: Grup de recerca en Arquitectura, energia i medi ambient > AIEM."
 
 msgid "codi_grau"
 msgstr "Codi UPC del Grau"
@@ -72,3 +72,18 @@ msgstr "Codi UPC del Màster"
 
 msgid "codi"
 msgstr "codi"
+
+msgid "pla_grau"
+msgstr "Pla d'estudis de grau"
+
+msgid "fitxa_grau"
+msgstr "Fitxa de grau"
+
+msgid "grups_recerca"
+msgstr "Grups de recerca"
+
+msgid "fitxa_master"
+msgstr "Fitxa de màster"
+
+msgid "grups_recerca_people"
+msgstr "Investigadors d'un grup de recerca"

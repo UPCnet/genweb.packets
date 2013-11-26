@@ -8,6 +8,7 @@ from genweb.core import utils
 from genweb.packets.interfaces import IpacketDefinition
 from genweb.packets import PACKETS_KEY
 
+
 from pyquery import PyQuery as pq
 
 import re
@@ -25,12 +26,55 @@ class packetView(BrowserView):
         annotations = IAnnotations(self.context)
         return annotations.get(PACKETS_KEY + '.type', None)
 
+
     def isAlreadyConfigured(self):
         annotations = IAnnotations(self.context)
         if annotations.get(PACKETS_KEY + '.type', None):
             return True
         else:
             return False
+
+    def selectedPacket(self):
+        annotations = IAnnotations(self.context)
+        if annotations.get(PACKETS_KEY + '.type', None):
+            packet_key = annotations.get(PACKETS_KEY + '.type')
+            state = True # By default, a value is correctly entered. Check if it's empty to return error
+            value = False # By default don't have value
+            if packet_key == 'pla_grau':
+                if annotations.get(PACKETS_KEY + '.fields')['codi_grau'] == '':
+                    state = False
+                else:
+                    value = annotations.get(PACKETS_KEY + '.fields')['codi_grau']
+
+            if packet_key == 'fitxa_grau':
+                if annotations.get(PACKETS_KEY + '.fields')['codi_grau'] == '':
+                    state =  False
+                else:
+                    value = annotations.get(PACKETS_KEY + '.fields')['codi_grau'] 
+
+            if packet_key == 'grups_recerca':
+                if annotations.get(PACKETS_KEY + '.fields')['codi_departament'] == '':
+                    state =  False
+                else:
+                    value = annotations.get(PACKETS_KEY + '.fields')['codi_departament']                   
+
+            if packet_key == 'fitxa_master':
+                if annotations.get(PACKETS_KEY + '.fields')['codi_master'] == '':
+                    state =  False
+                else:
+                    value = annotations.get(PACKETS_KEY + '.fields')['codi_master']
+
+            if packet_key == 'grups_recerca_people':
+                if annotations.get(PACKETS_KEY + '.fields')['acronim'] == '':
+                    state = False
+                else:
+                    value = annotations.get(PACKETS_KEY + '.fields')['acronim']                    
+
+            data = dict(state = state, packet_key = packet_key, value= value)
+            return data
+        else:
+            return False
+
 
     def getPacket(self):
         packet_type = self.getType()

@@ -32,31 +32,46 @@ msgid "packet_help"
 msgstr "Os ofrecemos contenidos ya existentes en la web UPC, que consultan los datos de los <strong>sistemas de información de PRISMA, DRAC y del Servicio de Comunicación, </strong>para que los podáis incorporar en la web  ya maquetadas con información de estudios y de la producción científica. Esta es la propuesta para ayudaros a mantener vuestros contenidos actualizados.<br /><br />Consulte toda la información referente a los <a href=\"https://www.upc.edu/comunicacio/www/continguts-empaquetats\">contenidos UPC.</a>"
 
 msgid "Fitxa de grau"
-msgstr ""
+msgstr "Plan de estudios de grado"
 
 msgid "Informació sobre un estudi d'un grau específic"
 msgstr ""
 
 msgid "Pla d'estudis de grau"
-msgstr ""
+msgstr "Ficha de grado"
 
 msgid "Informació sobre el pla d'estudis d'un grau específic"
 msgstr ""
 
 msgid "Fitxa de màster"
-msgstr ""
+msgstr "Ficha de master"
 
 msgid "Informació sobre un màster específic"
 msgstr ""
 
 msgid "Grups de recerca"
-msgstr ""
+msgstr "Grupos de investigación"
 
 msgid "Grups de recerca d'un departament específic"
 msgstr ""
 
 msgid "Investigadors d'un grup de recerca"
-msgstr ""
+msgstr "Investigadores de un grupo de investigación"
 
 msgid "Investigadors d'un grup de recerca d'un departament específic"
 msgstr ""
+
+msgid "pla_grau"
+msgstr "Plan de estudios de grado"
+
+msgid "fitxa_grau"
+msgstr "Ficha de grado"
+
+msgid "grups_recerca"
+msgstr "Grupos de investigación"
+
+msgid "fitxa_master"
+msgstr "Ficha de master"
+
+msgid "grups_recerca_people"
+msgstr "Investigadores de un grupo de investigación"
