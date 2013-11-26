@@ -12,14 +12,6 @@
 
   <i18n:registerTranslations directory="locales" />
 
-  <!-- Packet definition example - See genweb.upc.adapters -->
-  <!--
-  <adapter
-    factory=".adapters.FitxaGrau"
-    name="fitxa_grau"
-    />
-  -->
-
   <genericsetup:registerProfile
       name="default"
       title="Genweb Packets"
