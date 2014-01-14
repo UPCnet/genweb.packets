@@ -87,3 +87,9 @@ msgstr "Fitxa de màster"
 
 msgid "grups_recerca_people"
 msgstr "Investigadors d'un grup de recerca"
+
+msgid "<strong>Avís pels editors:</strong><br />Aquest Contingut UPC és del tipus:"
+msgstr "<strong>Avís pels editors:</strong><br />Aquest Contingut UPC és del tipus:"
+
+msgid "configurat amb l'identificador:"
+msgstr "configurat amb l'identificador:"

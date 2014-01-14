@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: ca\n"
+"Language-Code: es\n"
 "Language-Name: Spanish\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: genweb.packets\n"
@@ -75,3 +75,9 @@ msgstr "Ficha de master"
 
 msgid "grups_recerca_people"
 msgstr "Investigadores de un grupo de investigación"
+
+msgid "<strong>Avís pels editors:</strong><br />Aquest Contingut UPC és del tipus:"
+msgstr "<strong>Aviso para los editores:</strong><br />Este contenido UPC es del tipo:"
+
+msgid "configurat amb l'identificador:"
+msgstr "configurado con el identificador:"

@@ -62,16 +62,22 @@ msgid "Investigadors d'un grup de recerca d'un departament específic"
 msgstr ""
 
 msgid "pla_grau"
-msgstr ""
+msgstr "Pla Grau"
 
 msgid "fitxa_grau"
-msgstr ""
+msgstr "Fitxa Grau"
 
 msgid "grups_recerca"
-msgstr ""
+msgstr "Grups Recerca"
 
 msgid "fitxa_master"
-msgstr ""
+msgstr "Fitxa Master"
 
 msgid "grups_recerca_people"
 msgstr ""
+
+msgid "<strong>Avís pels editors:</strong><br />Aquest Contingut UPC és del tipus:"
+msgstr "<strong>Information for web editors:</strong><br />The type of this UPC Package is:"
+
+msgid "configurat amb l'identificador:"
+msgstr "configured with id:"

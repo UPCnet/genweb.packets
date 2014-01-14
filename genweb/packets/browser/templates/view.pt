@@ -7,49 +7,45 @@
 <head>
   <div metal:fill-slot="javascript_head_slot" tal:omit-tag=""> </div>
 </head>
-
+<div metal:use-macro="here/batch_macros/macros/navigation" />
 <body class="packets-view">
   <div metal:fill-slot="main">
 
     <tal:alreadyconfigured condition="view/isAlreadyConfigured" tal:define="packet view/selectedPacket">
-      
       <tal:withoutValue tal:condition="not: packet/state">
         <tal:message i18n:translate="">
           This packet is not configured yet. Please, do it in the 'configure' tab.
         </tal:message>
       </tal:withoutValue>
-
       <tal:withValue tal:condition="packet/state">
         <div>
           <h1 id="parent-fieldname-title" class="documentFirstHeading" tal:content="view/getTitle">
             Title
           </h1>
         </div>
-        <div>
-          <h2 style="text-align: right;">Selected value: 
-            <span i18n:translate="" tal:content="packet/packet_key"></span>
-              with id: 
-            <span tal:content="packet/value"></span>
-          </h2>
+        <div tal:condition="python: user.has_role(['Manager','Editor'])">
+          <p class="lead-small">
+            <tal:message i18n:translate=""><strong>Avís pels editors:</strong><br />Aquest Contingut UPC és del tipus:</tal:message>
+            <strong><tal:omit-tag i18n:translate="" tal:content="packet/packet_key"></tal:omit-tag>,</strong>
+            <tal:message i18n:translate="">configurat amb l'identificador:</tal:message>
+            <strong><tal:omit-tag tal:content="packet/value"></tal:omit-tag></strong>
+          </p>
         </div>
         <tal:packet replace="structure view/getPacket"></tal:packet>
       </tal:withValue>
-
     </tal:alreadyconfigured>  
 
-    <tal:alreadyconfigured condition="not: view/isAlreadyConfigured">
-    
+    <tal:notconfigured condition="not: view/isAlreadyConfigured">
       <div>
         <h1 id="parent-fieldname-title" class="documentFirstHeading" tal:content="view/getTitle">
           Title
         </h1>
       </div>
-    
       <tal:message i18n:translate="">
         This packet is not configured yet. Please, do it in the 'configure' tab.
       </tal:message>
+    </tal:notconfigured>
 
-    </tal:alreadyconfigured>
   </div>
 
 </body>
