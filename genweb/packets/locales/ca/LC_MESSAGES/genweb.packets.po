@@ -53,7 +53,7 @@ msgid "Grups de recerca"
 msgstr "Grups de recerca"
 
 msgid "Grups de recerca d'un departament específic"
-msgstr "<p>Llistat dels grups de recerca que pertanyen a un departament.</p><p class=\"muted\">Indiqueu el codi UPC del departament.</p><p class=\"muted\">Exemple: Departament d’Enginyeria Electrònica &gt; <strong>710</strong>.</p><p><target a=\"_blank\" href=\"http://gpaq.upc.edu/eines/?op=unitats&amp;index=Departaments&amp;vigent=S\" class=\"external-link\"><span class=\"external-link\">Llista dels codis UPC dels departaments <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></span><strong>.</strong></a></p>"
+msgstr "<p>Llistat dels grups de recerca que pertanyen a un departament.</p><p class=\"muted\">Indiqueu el codi UPC del departament.</p><p class=\"muted\">Exemple: Departament d’Enginyeria Electrònica &gt; <strong>710</strong>.</p><p><a target=\"_blank\" href=\"http://gpaq.upc.edu/eines/?op=unitats&amp;index=Departaments&amp;vigent=S\" class=\"external-link\"><span class=\"external-link\">Llista dels codis UPC dels departaments <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></span><strong>.</strong></a></p>"
 
 msgid "Investigadors d'un grup de recerca"
 msgstr "Investigadors d'un grup de recerca"
