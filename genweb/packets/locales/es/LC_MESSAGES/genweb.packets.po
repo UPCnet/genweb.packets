@@ -37,7 +37,7 @@ msgstr "Plan de estudios de grado"
 msgid "Informació sobre un estudi d'un grau específic"
 msgstr ""
 
-msgid "Pla d'estudis de grau"
+msgid "Pla d'estudi de grau"
 msgstr "Ficha de grado"
 
 msgid "Informació sobre el pla d'estudis d'un grau específic"

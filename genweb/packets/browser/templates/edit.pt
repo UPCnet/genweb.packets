@@ -11,7 +11,7 @@
 
 <body class="packet-edit">
  <div metal:fill-slot="main">
-  <div i18n:domain="genweb.packets" i18n:translate="packet_help" class="lead">Us oferim continguts ja existents al web UPC, que consulten les dades dels <strong>sistemes d'informació de PRISMA, DRAC i del Servei de Comunicació</strong>, perquè incorporeu al vostre web pàgines ja maquetades amb informació d’estudis i de la producció científica. Aquesta és la proposta per ajudar-vos a mantenir els vostres continguts actualitzats.<br /><br />Consulteu tota la informació referent als <a href="https://www.upc.edu/comunicacio/www/continguts-empaquetats">continguts UPC</a>.</div>
+  <div i18n:domain="genweb.packets" i18n:translate="packet_help" class="lead">Us oferim continguts ja existents al web UPC, que consulten les dades dels <strong>sistemes d'informació de PRISMA, DRAC i del Servei de Comunicació</strong>, perquè incorporeu al vostre web pàgines ja maquetades amb informació d’estudis i de la producció científica. Aquesta és la proposta per ajudar-vos a mantenir els vostres continguts actualitzats.<br /><br />Consulteu tota la informació referent als <a href="https://www.upc.edu/comunicacio/www/continguts-empaquetats">continguts UPC <img src="++genweb++static/images/blank_blau.png" class="img_blank" alt="(obriu en una finestra nova)"></a>.</div>
   <section tal:define="packets view/getAvailablePacketsInfo"
            tal:condition="packets">
     <tal:available repeat="packet packets">
@@ -20,7 +20,7 @@
           <p><strong tal:content="python:packet[1].title"></strong></p>
         </div>
         <div class="span6">
-          <p class="muted" tal:content="python:packet[1].description"></p>
+          <tal:omit-tag tal:content="structure python:packet[1].description"></tal:omit-tag>
         </div>
         <div class="span3">
           <p><a tal:attributes="href python:'#' + packet[0]" role="button" class="btn pull-right" data-toggle="modal">Select</a></p>
