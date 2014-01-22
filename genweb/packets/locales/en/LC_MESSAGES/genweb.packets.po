@@ -81,3 +81,6 @@ msgstr "<strong>Information for web editors:</strong><br />The type of this UPC 
 
 msgid "configurat amb l'identificador:"
 msgstr "configured with id:"
+
+msgid "ERROR: Unknown identifier. This page does not exist."
+msgstr "<h2>ERROR: Unknown identifier. This page does not exist.</h2>"

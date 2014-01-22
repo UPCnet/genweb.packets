@@ -7,7 +7,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from genweb.core import utils
 from genweb.packets.interfaces import IpacketDefinition
 from genweb.packets import PACKETS_KEY
-
+from genweb.packets import packetsMessageFactory as _
 
 from pyquery import PyQuery as pq
 
@@ -84,7 +84,11 @@ class packetView(BrowserView):
         raw_html = requests.get(url)
         clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode('utf-8'))
         doc = pq(clean_html)
-        return doc('#content').outerHtml()
+        match = re.search(r'This page does not exist', clean_html)
+        if match:
+            return _(u"ERROR: Unknown identifier. This page does not exist.")
+        else:
+            return doc('#content').outerHtml()
 
     def getTitle(self):
          return self.context.Title()

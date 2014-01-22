@@ -13,9 +13,11 @@
 
     <tal:alreadyconfigured condition="view/isAlreadyConfigured" tal:define="packet view/selectedPacket">
       <tal:withoutValue tal:condition="not: packet/state">
-        <tal:message i18n:translate="">
-          This packet is not configured yet. Please, do it in the 'configure' tab.
-        </tal:message>
+        <p class="lead-small">
+          <tal:message i18n:translate="">
+            This packet is not configured yet. Please, do it in the 'configure' tab.
+          </tal:message>
+        </p>
       </tal:withoutValue>
       <tal:withValue tal:condition="packet/state">
         <div>
@@ -41,9 +43,11 @@
           Title
         </h1>
       </div>
-      <tal:message i18n:translate="">
-        This packet is not configured yet. Please, do it in the 'configure' tab.
-      </tal:message>
+      <p class="lead-small">
+        <tal:message i18n:translate="">
+          This packet is not configured yet. Please, do it in the 'configure' tab.
+        </tal:message>
+      </p>
     </tal:notconfigured>
 
   </div>

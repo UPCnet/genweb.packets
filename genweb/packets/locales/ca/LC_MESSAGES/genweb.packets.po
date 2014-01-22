@@ -93,3 +93,6 @@ msgstr "<strong>Avís pels editors:</strong><br />Aquest Contingut UPC és del t
 
 msgid "configurat amb l'identificador:"
 msgstr "configurat amb l'identificador:"
+
+msgid "ERROR: Unknown identifier. This page does not exist."
+msgstr "<h2>ERROR: Identificador incorrecte. La pàgina no existeix.</h2>"
