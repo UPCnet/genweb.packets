@@ -11,6 +11,7 @@ from genweb.packets import PACKETS_KEY
 
 from pyquery import PyQuery as pq
 
+import plone.api
 import re
 import requests
 
@@ -26,7 +27,6 @@ class packetView(BrowserView):
         annotations = IAnnotations(self.context)
         return annotations.get(PACKETS_KEY + '.type', None)
 
-
     def isAlreadyConfigured(self):
         annotations = IAnnotations(self.context)
         if annotations.get(PACKETS_KEY + '.type', None):
@@ -34,47 +34,63 @@ class packetView(BrowserView):
         else:
             return False
 
+    def show_extended_info(self):
+        user = plone.api.user.get_current()
+        user_roles = set(plone.api.user.get_roles(user=user, obj=self.context) +
+                         plone.api.user.get_roles(user=user))
+
+        if 'Manager' in user_roles or \
+           'WebMaster' in user_roles or \
+           'Site Administrator' in user_roles or \
+           'Owner' in user_roles:
+            return True
+
     def selectedPacket(self):
         annotations = IAnnotations(self.context)
-        if annotations.get(PACKETS_KEY + '.type', None):
-            packet_key = annotations.get(PACKETS_KEY + '.type')
-            state = True # By default, a value is correctly entered. Check if it's empty to return error
-            value = False # By default don't have value
-            if packet_key == 'pla_grau':
-                if annotations.get(PACKETS_KEY + '.fields')['codi_grau'] == '':
-                    state = False
-                else:
-                    value = annotations.get(PACKETS_KEY + '.fields')['codi_grau']
+        packet_key = annotations.get(PACKETS_KEY + '.type')
+        packet_fields = annotations.get(PACKETS_KEY + '.fields')
+        packet_mapui = annotations.get(PACKETS_KEY + '.mapui')
 
-            if packet_key == 'fitxa_grau':
-                if annotations.get(PACKETS_KEY + '.fields')['codi_grau'] == '':
-                    state =  False
-                else:
-                    value = annotations.get(PACKETS_KEY + '.fields')['codi_grau'] 
+        return dict(state=True, packet_key=packet_key, value=packet_fields.get(packet_mapui.get('codi')))
 
-            if packet_key == 'grups_recerca':
-                if annotations.get(PACKETS_KEY + '.fields')['codi_departament'] == '':
-                    state =  False
-                else:
-                    value = annotations.get(PACKETS_KEY + '.fields')['codi_departament']                   
+        # if annotations.get(PACKETS_KEY + '.type', None):
+        #     packet_key = annotations.get(PACKETS_KEY + '.type')
+        #     state = True # By default, a value is correctly entered. Check if it's empty to return error
+        #     value = False # By default don't have value
+        #     if packet_key == 'pla_grau':
+        #         if annotations.get(PACKETS_KEY + '.fields')['codi_grau'] == '':
+        #             state = False
+        #         else:
+        #             value = annotations.get(PACKETS_KEY + '.fields')['codi_grau']
 
-            if packet_key == 'fitxa_master':
-                if annotations.get(PACKETS_KEY + '.fields')['codi_master'] == '':
-                    state =  False
-                else:
-                    value = annotations.get(PACKETS_KEY + '.fields')['codi_master']
+        #     if packet_key == 'fitxa_grau':
+        #         if annotations.get(PACKETS_KEY + '.fields')['codi_grau'] == '':
+        #             state =  False
+        #         else:
+        #             value = annotations.get(PACKETS_KEY + '.fields')['codi_grau']
 
-            if packet_key == 'grups_recerca_people':
-                if annotations.get(PACKETS_KEY + '.fields')['acronim'] == '':
-                    state = False
-                else:
-                    value = annotations.get(PACKETS_KEY + '.fields')['acronim']                    
+        #     if packet_key == 'grups_recerca':
+        #         if annotations.get(PACKETS_KEY + '.fields')['codi_departament'] == '':
+        #             state =  False
+        #         else:
+        #             value = annotations.get(PACKETS_KEY + '.fields')['codi_departament']
 
-            data = dict(state = state, packet_key = packet_key, value= value)
-            return data
-        else:
-            return False
+        #     if packet_key == 'fitxa_master':
+        #         if annotations.get(PACKETS_KEY + '.fields')['codi_master'] == '':
+        #             state =  False
+        #         else:
+        #             value = annotations.get(PACKETS_KEY + '.fields')['codi_master']
 
+        #     if packet_key == 'grups_recerca_people':
+        #         if annotations.get(PACKETS_KEY + '.fields')['acronim'] == '':
+        #             state = False
+        #         else:
+        #             value = annotations.get(PACKETS_KEY + '.fields')['acronim']
+
+        #     data = dict(state = state, packet_key = packet_key, value= value)
+        #     return data
+        # else:
+        #     return False
 
     def getPacket(self):
         packet_type = self.getType()
@@ -87,7 +103,7 @@ class packetView(BrowserView):
         return doc('#content').outerHtml()
 
     def getTitle(self):
-         return self.context.Title()
+        return self.context.Title()
 
 
 class packetEdit(BrowserView):
@@ -97,7 +113,7 @@ class packetEdit(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
-        self.available_ptypes = [adapter for adapter in getAdapters((self.context,), IpacketDefinition)]
+        self.available_ptypes = sorted([adapter for adapter in getAdapters((self.context,), IpacketDefinition)], key=lambda adapter: adapter[1].order)
 
     def __call__(self):
         if self.request.form:
