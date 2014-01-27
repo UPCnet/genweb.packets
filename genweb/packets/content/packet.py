@@ -30,7 +30,8 @@ class packet(folder.ATFolder):
     """A packed content"""
     implements(Ipacket)
 
-    meta_type = "packet"
+    meta_type = 'packet'
+    portal_type = 'packet'
     schema = packetSchema
 
 

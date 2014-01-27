@@ -50,7 +50,7 @@ class packetView(BrowserView):
         packet_key = annotations.get(PACKETS_KEY + '.type')
         packet_fields = annotations.get(PACKETS_KEY + '.fields')
         packet_mapui = annotations.get(PACKETS_KEY + '.mapui')
-        # import ipdb;ipdb.set_trace()
+
         return dict(packet_key=packet_key, value=packet_fields.get(packet_mapui.get('codi')))
 
     def getPacket(self):
