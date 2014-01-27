@@ -11,15 +11,8 @@
 <body class="packets-view">
   <div metal:fill-slot="main">
 
-    <tal:alreadyconfigured condition="view/isAlreadyConfigured" tal:define="packet view/selectedPacket">
-      <tal:withoutValue tal:condition="not: packet/state">
-        <p class="lead-small">
-          <tal:message i18n:translate="">
-            This packet is not configured yet. Please, do it in the 'configure' tab.
-          </tal:message>
-        </p>
-      </tal:withoutValue>
-      <tal:withValue tal:condition="packet/state">
+    <tal:alreadyconfigured condition="view/isAlreadyConfigured">
+      <tal:def define="packet view/selectedPacket">
         <div>
           <h1 id="parent-fieldname-title" class="documentFirstHeading" tal:content="view/getTitle">
             Title
@@ -34,7 +27,7 @@
           </p>
         </div>
         <tal:packet replace="structure view/getPacket"></tal:packet>
-      </tal:withValue>
+      </tal:def>
     </tal:alreadyconfigured>
 
     <tal:notconfigured condition="not: view/isAlreadyConfigured">
