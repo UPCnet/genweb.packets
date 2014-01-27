@@ -30,3 +30,15 @@ class BasePacket(object):
         annotations[PACKETS_KEY + '.type'] = value
 
     packet_type = property(get_packet_type, set_packet_type)
+
+    def get_mapui(self):
+        annotations = IAnnotations(self.context)
+        self._mapui = annotations.setdefault(PACKETS_KEY + '.mapui', '')
+        return self._mapui
+
+    def set_mapui(self, value):
+        annotations = IAnnotations(self.context)
+        annotations.setdefault(PACKETS_KEY + '.mapui', '')
+        annotations[PACKETS_KEY + '.mapui'] = value
+
+    packet_mapui = property(get_mapui, set_mapui)

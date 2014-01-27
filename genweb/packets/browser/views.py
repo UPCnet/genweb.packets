@@ -50,47 +50,8 @@ class packetView(BrowserView):
         packet_key = annotations.get(PACKETS_KEY + '.type')
         packet_fields = annotations.get(PACKETS_KEY + '.fields')
         packet_mapui = annotations.get(PACKETS_KEY + '.mapui')
-
-        return dict(state=True, packet_key=packet_key, value=packet_fields.get(packet_mapui.get('codi')))
-
-        # if annotations.get(PACKETS_KEY + '.type', None):
-        #     packet_key = annotations.get(PACKETS_KEY + '.type')
-        #     state = True # By default, a value is correctly entered. Check if it's empty to return error
-        #     value = False # By default don't have value
-        #     if packet_key == 'pla_grau':
-        #         if annotations.get(PACKETS_KEY + '.fields')['codi_grau'] == '':
-        #             state = False
-        #         else:
-        #             value = annotations.get(PACKETS_KEY + '.fields')['codi_grau']
-
-        #     if packet_key == 'fitxa_grau':
-        #         if annotations.get(PACKETS_KEY + '.fields')['codi_grau'] == '':
-        #             state =  False
-        #         else:
-        #             value = annotations.get(PACKETS_KEY + '.fields')['codi_grau']
-
-        #     if packet_key == 'grups_recerca':
-        #         if annotations.get(PACKETS_KEY + '.fields')['codi_departament'] == '':
-        #             state =  False
-        #         else:
-        #             value = annotations.get(PACKETS_KEY + '.fields')['codi_departament']
-
-        #     if packet_key == 'fitxa_master':
-        #         if annotations.get(PACKETS_KEY + '.fields')['codi_master'] == '':
-        #             state =  False
-        #         else:
-        #             value = annotations.get(PACKETS_KEY + '.fields')['codi_master']
-
-        #     if packet_key == 'grups_recerca_people':
-        #         if annotations.get(PACKETS_KEY + '.fields')['acronim'] == '':
-        #             state = False
-        #         else:
-        #             value = annotations.get(PACKETS_KEY + '.fields')['acronim']
-
-        #     data = dict(state = state, packet_key = packet_key, value= value)
-        #     return data
-        # else:
-        #     return False
+        # import ipdb;ipdb.set_trace()
+        return dict(packet_key=packet_key, value=packet_fields.get(packet_mapui.get('codi')))
 
     def getPacket(self):
         packet_type = self.getType()
@@ -127,6 +88,7 @@ class packetEdit(BrowserView):
             field_values = dict([(field, form[field]) for field in adapter.fields])
             adapter.packet_fields = field_values
             adapter.packet_type = packet_type
+            adapter.packet_mapui = adapter.mapui
             return self.request.response.redirect(self.context.absolute_url())
         else:
             return self.template()
