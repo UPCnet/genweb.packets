@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0-dev (unreleased)
---------------------
+1.0b1 (2014-08-08)
+------------------
 
  * Fixes [Victor Fernandez de Alba]
  * Simplify packet model and fix initial values [Victor Fernandez de Alba]
