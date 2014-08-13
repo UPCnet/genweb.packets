@@ -1,22 +1,32 @@
 <?xml version="1.0"?>
-<object name="packet"
-   meta_type="Factory-based Type Information with dynamic views"
-   i18n:domain="genweb.packets" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
-  <property name="title" i18n:translate="">packet</property>
-  <property name="description"
-    i18n:translate="">A packed content</property>
-  <property name="content_meta_type">packet</property>
-  <property name="content_icon">folder_icon.gif</property>
-  <property name="product">genweb.packets</property>
-  <property name="factory">addpacket</property>
-  <property name="immediate_view">atct_edit</property>
-  <property name="global_allow">True</property>
-  <property name="filter_content_types">False</property>
-  <property name="allow_discussion">False</property>
-  <property name="default_view">view</property>
-  <property name="view_methods">
-    <element value="view" />
-  </property>
+<object name="packet" meta_type="Dexterity FTI" i18n:domain="genweb.packets"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="title" i18n:translate="">packet</property>
+ <property name="description" i18n:translate=""></property>
+ <property name="icon_expr"></property>
+ <property name="factory">packet</property>
+ <property name="link_target"></property>
+ <property name="immediate_view">view</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">False</property>
+ <property name="allowed_content_types" />
+ <property name="allow_discussion">False</property>
+ <property name="default_view">view</property>
+ <property name="view_methods">
+   <element value="view" />
+ </property>
+ <property name="add_permission">plone.app.contenttypes.addFolder</property>
+ <property name="klass">genweb.packets.content.Packet</property>
+ <property name="behaviors">
+  <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+  <element value="plone.app.content.interfaces.INameFromTitle"/>
+  <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
+  <element
+     value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
+ </property>
+ <property name="schema"></property>
+ <property name="model_source"></property>
+ <property name="model_file">plone.app.contenttypes.schema:folder.xml</property>
   <alias from="(Default)" to="(dynamic view)" />
   <alias from="edit" to="atct_edit" />
   <alias from="sharing" to="@@sharing" />
@@ -34,3 +44,4 @@
     <permission value="Modify portal content" />
   </action>
 </object>
+

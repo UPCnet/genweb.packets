@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0b2.dev0'
+version = '2.0.dev0'
 
 README = open("README.rst").read()
 HISTORY = open(os.path.join("docs", "HISTORY.rst")).read()
@@ -30,6 +30,10 @@ setup(name='genweb.packets',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'genweb.core',
+          'plone.app.dexterity',
+          'plone.api',
+          'requests',
           'pyquery'
       ],
       extras_require={'test': ['plone.app.testing']},

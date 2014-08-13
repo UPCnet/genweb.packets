@@ -1,8 +1,9 @@
 from zope.interface import Interface
 from zope import schema
+from plone.app.contenttypes.interfaces import IFolder
 
 
-class Ipacket(Interface):
+class Ipacket(IFolder):
     """Marker interface for the packet"""
 
 
