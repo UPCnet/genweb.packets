@@ -1,11 +1,10 @@
 Changelog
 =========
 
-1.0b2 (unreleased)
-------------------
+2.0 (2014-09-16)
+----------------
 
-- Nothing changed yet.
-
+* Migrate packets to dexterity [Victor Fernandez de Alba]
 
 1.0b1 (2014-08-08)
 ------------------
