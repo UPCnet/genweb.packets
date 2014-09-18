@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.1 (unreleased)
+2.1 (2014-09-18)
 ----------------
 
-- Nothing changed yet.
-
+* Fix anonymous user view [Victor Fernandez de Alba]
 
 2.0 (2014-09-16)
 ----------------
