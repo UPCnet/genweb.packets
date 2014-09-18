@@ -36,6 +36,9 @@ class packetView(BrowserView):
 
     def show_extended_info(self):
         user = plone.api.user.get_current()
+        if not user:
+            return False
+
         user_roles = set(plone.api.user.get_roles(user=user, obj=self.context) +
                          plone.api.user.get_roles(user=user))
 
@@ -44,6 +47,8 @@ class packetView(BrowserView):
            'Site Administrator' in user_roles or \
            'Owner' in user_roles:
             return True
+        else:
+            return False
 
     def selectedPacket(self):
         annotations = IAnnotations(self.context)
