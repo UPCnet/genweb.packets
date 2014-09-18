@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.2 (unreleased)
+2.2 (2014-09-18)
 ----------------
 
-- Nothing changed yet.
-
+* Fix previous commit [Victor Fernandez de Alba]
 
 2.1 (2014-09-18)
 ----------------
