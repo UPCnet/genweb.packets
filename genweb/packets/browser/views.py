@@ -36,7 +36,7 @@ class packetView(BrowserView):
 
     def show_extended_info(self):
         user = plone.api.user.get_current()
-        if not user:
+        if user.name == 'Anonymous User':
             return False
 
         user_roles = set(plone.api.user.get_roles(user=user, obj=self.context) +
