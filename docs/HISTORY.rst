@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.3 (unreleased)
+2.3 (2014-09-29)
 ----------------
 
-- Nothing changed yet.
-
+* Fix anonymous check [Victor Fernandez de Alba]
 
 2.2 (2014-09-18)
 ----------------
