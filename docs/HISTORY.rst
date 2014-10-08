@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.5 (unreleased)
+2.5 (2014-10-08)
 ----------------
 
-- Nothing changed yet.
-
+* Make the packets referenceable [Victor Fernandez de Alba]
 
 2.4 (2014-10-08)
 ----------------
