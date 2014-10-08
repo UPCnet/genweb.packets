@@ -21,9 +21,10 @@
   <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
-  <element
-     value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
+  <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
+  <element value="plone.app.referenceablebehavior.referenceable.IReferenceable"/>
  </property>
+
  <property name="schema"></property>
  <property name="model_source"></property>
  <property name="model_file">plone.app.contenttypes.schema:folder.xml</property>
