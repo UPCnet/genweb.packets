@@ -96,3 +96,14 @@ msgstr "configurat amb l'identificador:"
 
 msgid "ERROR: Unknown identifier. This page does not exist."
 msgstr "<h2>ERROR: Identificador incorrecte. La pàgina no existeix.</h2>"
+
+msgid "label_select"
+msgstr "Selecciona"
+
+msgid "label_close"
+msgstr "Tanca"
+
+msgid "label_save_changes"
+msgstr "Desa"
+
+

@@ -23,7 +23,7 @@
           <tal:omit-tag tal:content="structure python:packet[1].description"></tal:omit-tag>
         </div>
         <div class="span3">
-          <p><a tal:attributes="href python:'#' + packet[0]" role="button" class="btn pull-right" data-toggle="modal">Select</a></p>
+          <p><a tal:attributes="href python:'#' + packet[0]" role="button" class="btn pull-right" data-toggle="modal" i18n:translate="label_select">Select</a></p>
         </div>
       </div>
     </tal:available>
@@ -47,8 +47,8 @@
             </tal:fields>
           </div>
           <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-            <button type="submit" href="#" class="btn btn-primary">Save changes</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true" i18n:translate="label_close">Close</button>
+            <button type="submit" href="#" class="btn btn-primary" i18n:translate="label_save_changes">Save changes</button>
           </div>
         </div>
       </form>

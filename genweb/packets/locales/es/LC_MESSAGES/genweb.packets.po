@@ -84,3 +84,12 @@ msgstr "configurado con el identificador:"
 
 msgid "ERROR: Unknown identifier. This page does not exist."
 msgstr "<h2>ERROR: Identificador incorrecto. La página no existe.</h2>"
+
+msgid "label_select"
+msgstr "Seleccionar"
+
+msgid "label_close"
+msgstr "Cerrar"
+
+msgid "label_save_changes"
+msgstr "Guardar"
