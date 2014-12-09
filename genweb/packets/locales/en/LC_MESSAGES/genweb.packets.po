@@ -29,52 +29,59 @@ msgid "This packet is not configured yet. Please, do it in the 'configure' tab."
 msgstr "This packet is not configured yet. Please, do it in the <a href=configure>Configure</a> tab."
 
 msgid "packet_help"
-msgstr "We offer existing content on the web UPC, view data from the <strong>PRISMA information systems, DRAC and Communication Service,</strong> you may be able to incorporate them to the web layouts already created with information from studies and scientific production. This is the proposal to help you keep your files updated.<br /><br />See all information concerning the <a href=\"https://www.upc.edu/comunicacio/www/continguts-empaquetats\">UPC contents.</a>"
+msgstr "We offer existing content on the web UPC, view data from the <strong>PRISMA information systems, DRAC and Communication Service,</strong> you may be able to incorporate them to the web layouts already created with information from studies and scientific production. This is the proposal to help you keep your files updated.<br /><br />See all information concerning the <a target=\"_blank\" href=\"https://www.upc.edu/comunicacio/www/continguts-empaquetats\">UPC contents.</a>"
 
 msgid "Fitxa de grau"
-msgstr ""
+msgstr "Bachelor’s degree file"
 
 msgid "Informació sobre un estudi d'un grau específic"
-msgstr ""
+msgstr "File containing basic information on a bachelor’s degree"
 
 msgid "Pla d'estudi de grau"
-msgstr ""
+msgstr "Bachelor’s degree curriculum"
 
 msgid "Informació sobre el pla d'estudis d'un grau específic"
-msgstr ""
+msgstr "Curriculum for a bachelor’s degree and access to the course guide"
 
 msgid "Fitxa de màster"
-msgstr ""
+msgstr "Master’s degree file"
 
 msgid "Informació sobre un màster específic"
-msgstr ""
+msgstr "File containing basic information on a master’s degree"
+
+msgid "Pla d'estudis de màster"
+msgstr "Master’s degree curriculum"
+
+msgid "Informació sobre un pla d'estudis de màster específic"
+msgstr "<p>(Available for all master except interuniversity)</p><p>Curriculum for a master’s degree and access to the course guide</p>"
+
 
 msgid "Grups de recerca"
-msgstr ""
+msgstr "Research groups"
 
 msgid "Grups de recerca d'un departament específic"
-msgstr ""
+msgstr "List of the research groups belonging to a department."
 
 msgid "Investigadors d'un grup de recerca"
-msgstr ""
+msgstr "Researchers in a research group"
 
 msgid "Investigadors d'un grup de recerca d'un departament específic"
-msgstr ""
+msgstr "List of the research groups belonging to a department"
 
 msgid "pla_grau"
-msgstr "Pla Grau"
+msgstr "Bachelor’s degree curriculum"
 
 msgid "fitxa_grau"
-msgstr "Fitxa Grau"
+msgstr "Bachelor’s degree file"
 
 msgid "grups_recerca"
-msgstr "Grups Recerca"
+msgstr "Research groups"
 
 msgid "fitxa_master"
-msgstr "Fitxa Master"
+msgstr "Master’s degree file"
 
 msgid "grups_recerca_people"
-msgstr ""
+msgstr "Researchers in a research group"
 
 msgid "<strong>Avís pels editors:</strong><br />Aquest Contingut UPC és del tipus:"
 msgstr "<strong>Information for web editors:</strong><br />The type of this UPC Package is:"
