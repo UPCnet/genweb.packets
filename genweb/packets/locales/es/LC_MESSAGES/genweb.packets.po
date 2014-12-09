@@ -29,7 +29,7 @@ msgid "This packet is not configured yet. Please, do it in the 'configure' tab."
 msgstr "Este Contenido UPC aún no está configurado. Por favor, acceda a la pestaña <a href=configure>Configura</a> para hacerlo."
 
 msgid "packet_help"
-msgstr "Os ofrecemos contenidos ya existentes en la web UPC, que consultan los datos de los <strong>sistemas de información de PRISMA, DRAC y del Servicio de Comunicación, </strong>para que los podáis incorporar en la web  ya maquetadas con información de estudios y de la producción científica. Esta es la propuesta para ayudaros a mantener vuestros contenidos actualizados.<br /><br />Consulte toda la información referente a los <a href=\"https://www.upc.edu/comunicacio/www/continguts-empaquetats\">contenidos UPC.</a>"
+msgstr "Os ofrecemos contenidos ya existentes en la web UPC, que consultan los datos de los <strong>sistemas de información de PRISMA, DRAC y del Servicio de Comunicación, </strong>para que los podáis incorporar en la web  ya maquetadas con información de estudios y de la producción científica. Esta es la propuesta para ayudaros a mantener vuestros contenidos actualizados.<br /><br />Consulte toda la información referente a los <a target=\"_blank\" href=\"https://www.upc.edu/comunicacio/www/continguts-empaquetats\">contenidos UPC.</a>"
 
 msgid "Fitxa de grau"
 msgstr "Plan de estudios de grado"
@@ -47,6 +47,12 @@ msgid "Fitxa de màster"
 msgstr "Ficha de master"
 
 msgid "Informació sobre un màster específic"
+msgstr ""
+
+msgid "Pla d'estudis de màster"
+msgstr ""
+
+msgid "Informació sobre un pla d'estudis de màster específic"
 msgstr ""
 
 msgid "Grups de recerca"
