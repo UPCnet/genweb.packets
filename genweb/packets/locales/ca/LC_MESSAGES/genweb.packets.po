@@ -59,13 +59,13 @@ msgid "Grups de recerca"
 msgstr "Grups de recerca"
 
 msgid "Grups de recerca d'un departament específic"
-msgstr ""
+msgstr "<p>Llistat dels grups de recerca que pertanyen a un departament.</p><p class=\"muted\">Indiqueu  el codi UPC del departament.</p><p class=\"muted\">Exemple:  el codi del Departament d’Enginyeria Electrònica és <strong>710.</strong></p><p><a target=\"_blank\" href=\"https://gpaq.upc.edu/eines/?op=unitats\" class=\"external-link\">Llista dels codis UPC de les unitats <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></a><strong>.<br></strong></p><p class=\"muted\"><strong>Seleccionar:</strong> Codi UPC del departament</p>"
 
 msgid "Investigadors d'un grup de recerca"
 msgstr "Investigadors d'un grup de recerca"
 
 msgid "Investigadors d'un grup de recerca d'un departament específic"
-msgstr "<p>Llistat dels investigadors d'un grup de recerca.</p><p class=\"muted\">Indiqueu l’acrònim del grup de recerca definit a DRAC.</p><p class=\"muted\">Exemple: l'acrònim del Grup de recerca en Arquitectura, energia i medi ambient és <strong>AIEM</strong>.</p><p><a target=\"_blank\" href=\"http://eprints.upc.edu/producciocientifica/index.jsp?tipus=contingut2&amp;locale=ca\" class=\"external-link\"><span class=\"external-link\"><span class=\"external-link\">Llista d'acrònims dels grups de recerca <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></span><strong>.</strong></span></a></p><p class=\"muted\"><strong>Seleccionar:</strong>Acrònim del grup de recerca</p>"
+msgstr "<p>Llistat dels investigadors d'un grup de recerca.</p><p class=\"muted\">Indiqueu l’acrònim del grup de recerca definit a DRAC.</p><p class=\"muted\">Exemple: l'acrònim del Grup de recerca en Arquitectura, energia i medi ambient és <strong>AIEM</strong>.</p><p><a target=\"_blank\" href=\"http://futur.upc.edu/organitzacio/os/Z3J1cHJlY2VyY2E=#produccio\" class=\"external-link\"><span class=\"external-link\"><span class=\"external-link\">Llista d'acrònims dels grups de recerca <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></span><strong>.</strong></span></a></p><p class=\"muted\"><strong>Seleccionar:</strong>Acrònim del grup de recerca</p>"
 
 msgid "codi_grau"
 msgstr "Codi UPC del Grau"
