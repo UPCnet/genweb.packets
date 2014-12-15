@@ -18,7 +18,7 @@ msgstr ""
 
 #. "packet"
 msgid "packet"
-msgstr "Packed content"
+msgstr "UPC content"
 
 #. "id_estudi"
 msgid "id_estudi"
