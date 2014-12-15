@@ -1,11 +1,14 @@
 Changelog
 =========
 
-2.6 (unreleased)
+2.6 (2014-12-15)
 ----------------
 
-- Nothing changed yet.
-
+* traduc [Paco Gregori]
+* aTraduccions literals contingut UPC [Paco Gregori]
+* atraducctions [Paco Gregori]
+* Traducciones [Francisco Gregori]
+* Traducciones packets [hanirok]
 
 2.5 (2014-10-08)
 ----------------
