@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.7 (unreleased)
+2.7 (2015-02-26)
 ----------------
 
-- Nothing changed yet.
-
+* Traducción literal en continguts UPC [Paco Gregori]
 
 2.6 (2014-12-15)
 ----------------
