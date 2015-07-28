@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.8 (unreleased)
+2.8 (2015-07-28)
 ----------------
 
-- Nothing changed yet.
-
+* Edit template packets [hanirok]
 
 2.7 (2015-02-26)
 ----------------
