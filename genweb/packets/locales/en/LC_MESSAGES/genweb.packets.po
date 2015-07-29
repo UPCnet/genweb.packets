@@ -91,3 +91,14 @@ msgstr "configured with id:"
 
 msgid "ERROR: Unknown identifier. This page does not exist."
 msgstr "<h2>ERROR: Unknown identifier. This page does not exist.</h2>"
+
+msgid "Contingut d'una pàgina externa"
+msgstr ""
+"<p>Shows the part that we specify of the existing page</p><p class=\"muted"
+"\">You should specify an URL and an id or class inside the content</p>"
+
+msgid "url_contingut"
+msgstr "Complete content URL"
+
+msgid "element"
+msgstr "Element that we want to show, like #core-content"

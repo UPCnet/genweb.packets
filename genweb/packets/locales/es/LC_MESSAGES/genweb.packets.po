@@ -101,3 +101,13 @@ msgstr "Cerrar"
 msgid "label_save_changes"
 msgstr "Guardar"
 
+msgid "Contingut d'una pàgina externa"
+msgstr ""
+"<p>Muestra la parte que especifiquemos de la página existente</p><p class=\"muted"
+"\">Especificar la URL y el id o la clase dentro del contenido</p>"
+
+msgid "url_contingut"
+msgstr "URL completa del contenido"
+
+msgid "element"
+msgstr "Elemento que queremos mostrar, por ejemplo #core-content"

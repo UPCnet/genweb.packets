@@ -106,7 +106,6 @@ msgstr "configurat amb l'identificador:"
 msgid "ERROR: Unknown identifier. This page does not exist."
 msgstr "<h2>ERROR: Identificador incorrecte. La pàgina no existeix.</h2>"
 
-
 msgid "label_select"
 msgstr "Identificador"
 
@@ -116,5 +115,14 @@ msgstr "Tanca"
 msgid "label_save_changes"
 msgstr "Desa"
 
+msgid "Contingut d'una pàgina externa"
+msgstr ""
+"<p>Mostra la part que especifiquem d'una pàgina existent</p><p class=\"muted"
+"\">Cal especificar la URL i un id o class existent dins aquesta URL</p>"
 
+msgid "url_contingut"
+msgstr "URL completa del contingut"
+
+msgid "element"
+msgstr "Element que volem mostrar, per exemple #core-content"
 
