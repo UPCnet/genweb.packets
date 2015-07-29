@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.9 (unreleased)
+2.9 (2015-07-29)
 ----------------
 
-- Nothing changed yet.
-
+* New translations [Victor Fernandez de Alba]
 
 2.8 (2015-07-28)
 ----------------
