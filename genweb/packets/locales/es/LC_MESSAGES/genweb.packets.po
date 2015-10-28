@@ -35,13 +35,13 @@ msgid "Fitxa de grau"
 msgstr "Ficha de grado"
 
 msgid "Informació sobre un estudi d'un grau específic"
-msgstr "<p>Ficha con la información básica de un grado.</p><p class=\"muted\">Indicar el código UPC del grado  que lo identifica en PRISMA.</p><p class=\"muted\">Ejemplo:  el código UPC del Grado en Ingeniería Física es <strong>23010611.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/www/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">Lista de los códigos UPC de los estudiós de grado <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Abrir en nueva ventana)\"></a><strong>.<br></strong></p></p>"
+msgstr "<p>Ficha con la información básica de un grado.</p><p class=\"muted\">Indicar el código UPC del grado  que lo identifica en PRISMA.</p><p class=\"muted\">Ejemplo:  el código UPC del Grado en Ingeniería Física es <strong>823.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/ca/serveis-web/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">Lista de los códigos UPC de los estudiós de grado <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Abrir en nueva ventana)\"></a><strong>.<br></strong></p></p>"
 
 msgid "Pla d'estudi de grau"
 msgstr "Plan de estudios de grado"
 
 msgid "Informació sobre el pla d'estudis d'un grau específic"
-msgstr "<p>Plan de estudios de un grado con acceso a las guías docentes.</p><p class=\"muted\">Indicar el código UPC del grado que lo identifica en PRISMA.</p><p class=\"muted\">Ejemplo: el código UPC del Grado en Ingeniería Física es <strong>23010611.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/www/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">Lista de los códigos UPC de los estudiós de grado <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Abrir en nueva ventana)\"></a>.</p>"
+msgstr "<p>Plan de estudios de un grado con acceso a las guías docentes.</p><p class=\"muted\">Indicar el código UPC del grado que lo identifica en PRISMA.</p><p class=\"muted\">Ejemplo: el código UPC del Grado en Ingeniería Física es <strong>823.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/ca/serveis-web/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">Lista de los códigos UPC de los estudiós de grado <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Abrir en nueva ventana)\"></a>.</p>"
 
 msgid "Fitxa de màster"
 msgstr "Ficha de master"

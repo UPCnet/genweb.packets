@@ -35,13 +35,13 @@ msgid "Fitxa de grau"
 msgstr "Bachelor’s degree file"
 
 msgid "Informació sobre un estudi d'un grau específic"
-msgstr "<p>File containing basic information on a bachelor’s degree</p><p class=\"muted\"><strong>Parameter:</strong> UPC code of the bachelor’s degree for PRISMA</p><p class=\"muted\">For example, the UPC code of the bachelor's degree in Engineering Physics is <strong>23010611.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/www/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">UPC codes of the bachelor’s degree <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Open new window)\"></a><strong>.<br></strong></p><p class=\"muted\"><strong>Select: </strong>UPC code</p></p>"
+msgstr "<p>File containing basic information on a bachelor’s degree</p><p class=\"muted\"><strong>Parameter:</strong> UPC code of the bachelor’s degree for PRISMA</p><p class=\"muted\">For example, the UPC code of the bachelor's degree in Engineering Physics is <strong>823.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/www/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">UPC codes of the bachelor’s degree <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Open new window)\"></a><strong>.<br></strong></p><p class=\"muted\"><strong>Select: </strong>UPC code</p></p>"
 
 msgid "Pla d'estudi de grau"
 msgstr "Bachelor’s degree curriculum"
 
 msgid "Informació sobre el pla d'estudis d'un grau específic"
-msgstr "<p>Curriculum for a bachelor’s degree and access to the course guide.</p><p class=\"muted\"><strong>Parameter:</strong> UPC code of the bachelor’s degree for PRISMA.</p><p class=\"muted\">For example, the UPC code of the bachelor's degree in Engineering Physics is <strong>23010611.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/www/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">UPC codes of the bachelor’s degree <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Open new window)\"></a>.</p><p class=\"muted\"><strong>Select: </strong>UPC code</p>"
+msgstr "<p>Curriculum for a bachelor’s degree and access to the course guide.</p><p class=\"muted\"><strong>Parameter:</strong> UPC code of the bachelor’s degree for PRISMA.</p><p class=\"muted\">For example, the UPC code of the bachelor's degree in Engineering Physics is <strong>823.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/www/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">UPC codes of the bachelor’s degree <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Open new window)\"></a>.</p><p class=\"muted\"><strong>Select: </strong>UPC code</p>"
 
 msgid "Fitxa de màster"
 msgstr "Master’s degree file"
