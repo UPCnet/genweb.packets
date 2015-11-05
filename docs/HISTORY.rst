@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.10 (unreleased)
+2.10 (2015-11-05)
 -----------------
 
-- Nothing changed yet.
-
+* Changes to the configuration page for packets [Alberto Duran]
 
 2.9 (2015-07-29)
 ----------------
@@ -20,7 +19,7 @@ Changelog
 2.7 (2015-02-26)
 ----------------
 
-* Traducción literal en continguts UPC [Paco Gregori]
+* Literal translations [Paco Gregori]
 
 2.6 (2014-12-15)
 ----------------
