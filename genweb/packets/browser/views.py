@@ -95,37 +95,40 @@ class packetView(BrowserView):
         return self.template()
 
     def getHTML(self):
-        # import pdb; pdb.set_trace()
-        packet_type = self.getType()
-        adapter = getAdapter(self.context, IpacketDefinition, packet_type)
-        adapter.packet_fields.update({'lang': utils.pref_lang()})
+            # import pdb; pdb.set_trace()
+            packet_type = self.getType()
+            adapter = getAdapter(self.context, IpacketDefinition, packet_type)
+            adapter.packet_fields.update({'lang': utils.pref_lang()})
 
-        url = adapter.URL_schema
+            url = adapter.URL_schema
 
-        try:
-            raw_html = requests.get(url % adapter.packet_fields)
-            clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode('utf-8'))
-            doc = pq(clean_html)
-            match = re.search(r'This page does not exist', clean_html)
-
-            self.title = self.context.Title()  # titol per defecte
-
-            if match:
-                content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
-            else:
-                if packet_type == 'contingut_genweb':
-                    element = adapter.packet_fields['element']
-                    if not element:
-                        element = "#content-core"
+            try:
+                url = self.absolute_url(url % adapter.packet_fields)
+                raw_html = requests.get(url)
+                charset = re.findall('charset=(.*)"', raw_html.content)
+                if len(charset) > 0:
+                    clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
+                    doc = pq(clean_html)
+                    match = re.search(r'This page does not exist', clean_html)
+                    self.title = self.context.Title()  # titol per defecte
+                    if match:
+                        content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
+                    else:
+                        if packet_type == 'contingut_genweb':
+                            element = adapter.packet_fields['element']
+                            if not element:
+                                element = "#content-core"
+                        else:
+                            element = "#content"
+                        content = doc(element).outerHtml()
+                        if not content:
+                            content = _(u"ERROR. This element does not exist.") + " " + element
                 else:
-                    element = "#content"
-                content = doc(element).outerHtml()
-                if not content:
-                    content = _(u"ERROR. This element does not exist.") + " " + element
-        except requests.exceptions.RequestException:
-            content = _(u"ERROR. This URL does not exist.")
+                    content = _(u"ERROR. Charset undefined")
+            except requests.exceptions.RequestException:
+                content = _(u"ERROR. This URL does not exist.")
 
-        self.content = content
+            self.content = content
 
     def getPacket(self):
         return self.content
