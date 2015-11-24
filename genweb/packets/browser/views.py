@@ -17,18 +17,6 @@ import requests
 import urlparse
 
 
-def absolute_url(self, url):
-    """
-    Convert relative url to absolute
-    """
-    if not ("://" in url):
-        base = self.context.__parent__.absolute_url() + '/'
-        return urlparse.urljoin(base, url)
-    else:
-        # Already absolute
-        return url
-
-
 class packetEdit(BrowserView):
 
     template = ViewPageTemplateFile('templates/edit.pt')
@@ -177,3 +165,14 @@ class packetView(BrowserView):
             return True
         else:
             return False
+
+    def absolute_url(self, url):
+        """
+        Convert relative url to absolute
+        """
+        if not ("://" in url):
+            base = self.context.__parent__.absolute_url() + '/'
+            return urlparse.urljoin(base, url)
+        else:
+            # Already absolute
+            return url
