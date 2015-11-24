@@ -14,6 +14,19 @@ from pyquery import PyQuery as pq
 import plone.api
 import re
 import requests
+import urlparse
+
+
+def absolute_url(self, url):
+    """
+    Convert relative url to absolute
+    """
+    if not ("://" in url):
+        base = self.context.__parent__.absolute_url() + '/'
+        return urlparse.urljoin(base, url)
+    else:
+        # Already absolute
+        return url
 
 
 class packetEdit(BrowserView):
@@ -95,7 +108,7 @@ class packetView(BrowserView):
             doc = pq(clean_html)
             match = re.search(r'This page does not exist', clean_html)
 
-            self.title = self.context.Title() # titol per defecte
+            self.title = self.context.Title()  # titol per defecte
 
             if match:
                 content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
