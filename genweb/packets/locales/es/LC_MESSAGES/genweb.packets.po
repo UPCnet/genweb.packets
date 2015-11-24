@@ -110,4 +110,4 @@ msgid "url_contingut"
 msgstr "URL completa del contenido"
 
 msgid "element"
-msgstr "Elemento que queremos mostrar, por ejemplo #core-content"
+msgstr "Elemento que queremos mostrar, por ejemplo #content-core"

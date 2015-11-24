@@ -101,4 +101,4 @@ msgid "url_contingut"
 msgstr "Complete content URL"
 
 msgid "element"
-msgstr "Element that we want to show, like #core-content"
+msgstr "Element that we want to show, like #content-core"
