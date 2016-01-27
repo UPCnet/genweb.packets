@@ -83,7 +83,7 @@ class packetView(BrowserView):
         return self.template()
 
     def getHTML(self):
-            import pdb; pdb.set_trace()
+            #import pdb; pdb.set_trace()
             packet_type = self.getType()
             adapter = getAdapter(self.context, IpacketDefinition, packet_type)
             adapter.packet_fields.update({'lang': utils.pref_lang()})
