@@ -83,7 +83,7 @@ class packetView(BrowserView):
         return self.template()
 
     def getHTML(self):
-            # import pdb; pdb.set_trace()
+            import pdb; pdb.set_trace()
             packet_type = self.getType()
             adapter = getAdapter(self.context, IpacketDefinition, packet_type)
             adapter.packet_fields.update({'lang': utils.pref_lang()})
@@ -107,7 +107,7 @@ class packetView(BrowserView):
                             if not element:
                                 element = "#content-core"
                         else:
-                            element = "#content"
+                            element = "#content-nucli"
                         content = doc(element).outerHtml()
                         if not content:
                             content = _(u"ERROR. This element does not exist.") + " " + element
