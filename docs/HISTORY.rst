@@ -1,11 +1,15 @@
 Changelog
 =========
 
-2.11 (unreleased)
+2.11 (2016-02-02)
 -----------------
 
-- Nothing changed yet.
-
+* replace "content" -> "content-nucli" [Alberto Duran]
+* remove duplicate id="content" [Alberto Duran]
+* Error packet translation [hanirok]
+* Amend [hanirok]
+* Oscar getHTML [hanirok]
+* Nueva absolute_url de Oscar [hanirok]
 
 2.10 (2015-11-05)
 -----------------
