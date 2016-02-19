@@ -108,7 +108,7 @@ class packetView(BrowserView):
                                 element = "#content-core"
                         else:
                             element = "#content-nucli"
-                        content = doc(element).outerHtml()
+                        content = pq(doc(element).outerHtml()).html(method='html')
                         if not content:
                             content = _(u"ERROR. This element does not exist.") + " " + element
                 else:
