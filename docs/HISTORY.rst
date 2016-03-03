@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.12 (unreleased)
+2.12 (2016-03-03)
 -----------------
 
-- Nothing changed yet.
-
+* Fix bug 642440. Include the top container tag in the returned HTML. [Santiago Cortes]
+* Fix bug 642440. Fix getHTML method of the packet view so that the returned HTML does not contain invalid self-closing HTML tags, e.g. <script/>. [Santiago Cortes]
 
 2.11 (2016-02-02)
 -----------------
