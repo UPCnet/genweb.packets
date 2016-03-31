@@ -11,7 +11,7 @@ from genweb.packets import packetsMessageFactory as _
 
 from pyquery import PyQuery as pq
 
-from plone import api
+import plone.api
 import re
 import requests
 import urlparse
@@ -88,18 +88,12 @@ class packetView(BrowserView):
         adapter.packet_fields.update({'lang': utils.pref_lang()})
 
         url = adapter.URL_schema
-
         try:
             url = self.get_absolute_url(url % adapter.packet_fields)
-
             # check url to avoid autoreference, removing http(s) and final slash
             check_url = re.findall('https?(.*)\/?', url)[0].strip('/')
-            check_parent = re.findall('https?(.*)\/?', self.context.absolute_url())[0].strip('/')
-
-            # check url to avoid reference to root, removing language /xx
-            check_root = re.findall('https?(.*)\/?', self.get_absolute_url(api.portal.get().absolute_url()))[0].strip('/')
-
-            if check_url != check_parent and check_url.strip('/ca').strip('/es').strip('/en') != check_root:
+            check_parent = re.findall('https?(.*)\/?', self.aq_parent.absolute_url())[0].strip('/')
+            if check_url != check_parent:
                 raw_html = requests.get(url)
                 charset = re.findall('charset=(.*)"', raw_html.content)
                 if len(charset) > 0:
@@ -115,9 +109,9 @@ class packetView(BrowserView):
                         else:
                             element = "#content-nucli"
                         content = pq('<div/>').append(
-                            doc(self.data.element).outerHtml()).html(method='html')
+                            doc(element).outerHtml()).html(method='html')
                         if not content:
-                            content = _(u"ERROR. This element does not exist.") + " " + self.data.element
+                            content = _(u"ERROR. This element does not exist.") + " " + element
                     else:
                         content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
                 else:
@@ -130,6 +124,17 @@ class packetView(BrowserView):
             content = _(u"ERROR. Unexpected exception.")
 
         self.content = content
+
+    def get_absolute_url(self, url):
+        """
+        Convert relative url to absolute
+        """
+        if not ("://" in url):
+            base = self.context.__parent__.absolute_url() + '/'
+            return urlparse.urljoin(base, url)
+        else:
+            # Already absolute
+            return url
 
     def getPacket(self):
         return self.content
@@ -162,14 +167,14 @@ class packetView(BrowserView):
         return dict(packet_key=packet_key, value=packet_fields.get(packet_mapui.get('codi')), element=packet_fields.get(packet_mapui.get('element')))
 
     def show_extended_info(self):
-        user = api.user.get_current()
+        user = plone.api.user.get_current()
 
         if getattr(user, 'name', False):
             if user.name == 'Anonymous User':
                 return False
 
-        user_roles = set(api.user.get_roles(user=user, obj=self.context) +
-                         api.user.get_roles(user=user))
+        user_roles = set(plone.api.user.get_roles(user=user, obj=self.context) +
+                         plone.api.user.get_roles(user=user))
 
         if 'Manager' in user_roles or \
            'WebMaster' in user_roles or \
@@ -179,7 +184,7 @@ class packetView(BrowserView):
         else:
             return False
 
-    def get_absolute_url(self, url):
+    def absolute_url(self, url):
         """
         Convert relative url to absolute
         """
