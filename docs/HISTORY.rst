@@ -1,11 +1,11 @@
 Changelog
 =========
 
-2.13 (unreleased)
+2.13 (2016-04-07)
 -----------------
 
-- Nothing changed yet.
-
+* contigut upc by O.A [Alberto Duran]
+* comprovacio autoreferenciament [Alberto Duran]
 
 2.12 (2016-03-03)
 -----------------
