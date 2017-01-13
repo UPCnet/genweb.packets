@@ -106,24 +106,25 @@ class packetView(BrowserView):
                             element = adapter.packet_fields['element']
                             if not element:
                                 element = "#content-core"
+                        elif packet_type == 'grups_recerca' or packet_type == 'grups_recerca_people':
+                            element = "#content"
                         else:
                             element = "#content-nucli"
-                        content = pq('<div/>').append(
-                            doc(element).outerHtml()).html(method='html')
-                        if not content:
-                            content = _(u"ERROR. This element does not exist.") + " " + element
+                        html_content = pq('<div/>').append(doc(element).outerHtml()).html(method='html')
+                        if not html_content:
+                            html_content = _(u"ERROR. This element does not exist.") + " " + element
                     else:
-                        content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
+                        html_content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
                 else:
-                    content = _(u"ERROR. Charset undefined")
+                    html_content = _(u"ERROR. Charset undefined")
             else:
-                content = _(u"ERROR. Autoreference")
+                html_content = _(u"ERROR. Autoreference")
         except requests.exceptions.RequestException:
-            content = _(u"ERROR. This URL does not exist.")
+            html_content = _(u"ERROR. This URL does not exist.")
         except:
-            content = _(u"ERROR. Unexpected exception.")
+            html_content = _(u"ERROR. Unexpected exception.")
 
-        self.content = content
+        self.content = html_content
 
     def get_absolute_url(self, url):
         """
