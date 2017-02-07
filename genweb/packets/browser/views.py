@@ -3,6 +3,7 @@ from zope.annotation.interfaces import IAnnotations
 
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFCore.utils import getToolByName
 
 from genweb.core import utils
 from genweb.packets.interfaces import IpacketDefinition
@@ -14,7 +15,9 @@ from pyquery import PyQuery as pq
 import plone.api
 import re
 import requests
+from requests.exceptions import RequestException, ReadTimeout
 import urlparse
+import unicodedata
 
 
 class packetEdit(BrowserView):
@@ -82,43 +85,88 @@ class packetView(BrowserView):
     def __call__(self):
         return self.template()
 
+    def get_catalog_content(self, path_to_search):
+        """ Fem una consulta al catalog, en comptes de fer un PyQuery """
+        catalog = getToolByName(self.context, 'portal_catalog')
+        objects = catalog(path=path_to_search)
+        raw_html = u''
+        try:
+            raw_html = objects[0]()
+        except:
+            raw_html = objects[0].getObject()()
+        return unicodedata.normalize('NFKD', raw_html).encode('ascii', 'ignore')
+
     def getHTML(self):
         packet_type = self.getType()
         adapter = getAdapter(self.context, IpacketDefinition, packet_type)
         adapter.packet_fields.update({'lang': utils.pref_lang()})
 
         url = adapter.URL_schema
+        portal_url = getToolByName(self.context, "portal_url")
+        portal = portal_url.getPortalObject()
+        url_portal_nginx = portal.absolute_url()  # url (per dns) del lloc
         try:
             url = self.get_absolute_url(url % adapter.packet_fields)
             # check url to avoid autoreference, removing http(s) and final slash
-            check_url = re.findall('https?(.*)\/?', url)[0].strip('/')
-            check_parent = re.findall('https?(.*)\/?', self.aq_parent.absolute_url())[0].strip('/')
-            if check_url != check_parent:
-                raw_html = requests.get(url)
-                charset = re.findall('charset=(.*)"', raw_html.content)
-                if len(charset) > 0:
-                    clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
-                    doc = pq(clean_html)
-                    match = re.search(r'This page does not exist', clean_html)
-                    self.title = self.context.Title()  # titol per defecte
-                    if not match:
-                        if packet_type == 'contingut_genweb':
-                            element = adapter.packet_fields['element']
-                            if not element:
-                                element = "#content-core"
+            link_url = re.findall('https?://(.*)', url)[0].strip('/')  # url del contingut netejada
+            parent_url = re.findall('https?://(.*)', self.context.absolute_url())[0].strip('/')  # url del pare netejada
+            root_url = re.findall('https?://(.*)', url_portal_nginx)[0].strip('/')  # url (per dns) del lloc netejada
+            if link_url != parent_url:
+                if root_url in link_url:
+                    # link intern, search through the catalog
+                    relative_path = '/' + re.findall(root_url + '(.*)', link_url)[0]
+                    url_to_search = '/'.join(portal.getPhysicalPath()) + relative_path
+                    raw_html = self.get_catalog_content(url_to_search)
+                    charset = re.findall('charset=(.*)"', raw_html)
+                    if len(charset) > 0:
+                        clean_html = re.sub(r'[\n\r]?', r'', raw_html.decode(charset[0]))
+                        doc = pq(clean_html)
+                        match = re.search(r'This page does not exist', clean_html)
+                        self.title = self.context.Title()  # titol per defecte
+                        if not match:
+                            if packet_type == 'contingut_genweb':
+                                element = adapter.packet_fields['element']
+                                if not element:
+                                    element = "#content-core"
+                            else:
+                                element = "#content-nucli"
+                            content = pq('<div/>').append(
+                                doc(element).outerHtml()).html(method='html')
+                            if not content:
+                                content = _(u"ERROR. This element does not exist.") + " " + element
                         else:
-                            element = "#content-nucli"
-                        content = pq('<div/>').append(
-                            doc(element).outerHtml()).html(method='html')
-                        if not content:
-                            content = _(u"ERROR. This element does not exist.") + " " + element
+                            content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
                     else:
-                        content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
+                        content = _(u"ERROR. Charset undefined")
                 else:
-                    content = _(u"ERROR. Charset undefined")
+                    # link extern, pyreq
+                    raw_html = requests.get(url, timeout=5)
+                    charset = re.findall('charset=(.*)"', raw_html.content)
+                    if len(charset) > 0:
+                        clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
+                        doc = pq(clean_html)
+                        match = re.search(r'This page does not exist', clean_html)
+                        self.title = self.context.Title()  # titol per defecte
+                        if not match:
+                            if packet_type == 'contingut_genweb':
+                                element = adapter.packet_fields['element']
+                                if not element:
+                                    element = "#content-core"
+                            else:
+                                element = "#content-nucli"
+                            content = pq('<div/>').append(
+                                doc(element).outerHtml()).html(method='html')
+                            if not content:
+                                content = _(u"ERROR. This element does not exist.") + " " + element
+                        else:
+                            content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
+                    else:
+                        content = _(u"ERROR. Charset undefined")
             else:
                 content = _(u"ERROR. Autoreference")
-        except requests.exceptions.RequestException:
+        except ReadTimeout:
+            content = _(u"ERROR. There was a timeout while waiting for '{0}'".format(self.get_absolute_url(self.data.url)))
+        except RequestException:
             content = _(u"ERROR. This URL does not exist.")
         except:
             content = _(u"ERROR. Unexpected exception.")
