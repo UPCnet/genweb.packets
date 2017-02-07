@@ -1,11 +1,12 @@
 Changelog
 =========
 
-2.14 (unreleased)
+2.14 (2017-02-07)
 -----------------
 
-- Nothing changed yet.
-
+* existing content search in plone catalog [alberto.duran]
+* desfer canvi anterior, modificacio al ws [alberto.duran]
+* adaptat per grups de recerca i investigadors [alberto.duran]
 
 2.13 (2016-04-07)
 -----------------
