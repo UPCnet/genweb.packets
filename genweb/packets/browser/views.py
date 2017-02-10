@@ -17,7 +17,6 @@ import re
 import requests
 from requests.exceptions import RequestException, ReadTimeout
 import urlparse
-import unicodedata
 
 
 class packetEdit(BrowserView):
@@ -94,7 +93,7 @@ class packetView(BrowserView):
             raw_html = objects[0]()
         except:
             raw_html = objects[0].getObject()()
-        return unicodedata.normalize('NFKD', raw_html).encode('ascii', 'ignore')
+        return raw_html
 
     def getHTML(self):
         packet_type = self.getType()
@@ -119,7 +118,7 @@ class packetView(BrowserView):
                     raw_html = self.get_catalog_content(url_to_search)
                     charset = re.findall('charset=(.*)"', raw_html)
                     if len(charset) > 0:
-                        clean_html = re.sub(r'[\n\r]?', r'', raw_html.decode(charset[0]))
+                        clean_html = re.sub(r'[\n\r]?', r'', raw_html.encode(charset[0]))
                         doc = pq(clean_html)
                         match = re.search(r'This page does not exist', clean_html)
                         self.title = self.context.Title()  # titol per defecte
