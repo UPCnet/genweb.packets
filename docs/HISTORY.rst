@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.15 (unreleased)
+2.15 (2017-02-15)
 -----------------
 
-- Nothing changed yet.
-
+* accents en cerca local existing content [alberto.duran]
 
 2.14 (2017-02-07)
 -----------------
