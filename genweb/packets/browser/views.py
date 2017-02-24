@@ -1,6 +1,6 @@
 from zope.component import getAdapter, getAdapters
 from zope.annotation.interfaces import IAnnotations
-
+from Products.PloneFormGen.interfaces import IPloneFormGenForm
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
@@ -86,13 +86,18 @@ class packetView(BrowserView):
 
     def get_catalog_content(self, path_to_search):
         """ Fem una consulta al catalog, en comptes de fer un PyQuery """
-        catalog = getToolByName(self.context, 'portal_catalog')
-        objects = catalog(path=path_to_search)
         raw_html = u''
-        try:
-            raw_html = objects[0]()
-        except:
-            raw_html = objects[0].getObject()()
+        catalog = getToolByName(self.context, 'portal_catalog')
+        """ Mirem el cas especial dels form """
+        im_searching_forms = catalog(path=path_to_search, object_provides=IPloneFormGenForm.__identifier__)
+        if len(im_searching_forms) > 0:
+            raw_html = im_searching_forms[0].getObject()()
+        else:
+            objects = catalog(path=path_to_search)
+            try:
+                raw_html = objects[0]()
+            except:
+                raw_html = objects[0].getObject()()
         return raw_html
 
     def getHTML(self):
@@ -111,7 +116,7 @@ class packetView(BrowserView):
             parent_url = re.findall('https?://(.*)', self.context.absolute_url())[0].strip('/')  # url del pare netejada
             root_url = re.findall('https?://(.*)', url_portal_nginx)[0].strip('/')  # url (per dns) del lloc netejada
             if link_url != parent_url:
-                if root_url in link_url:
+                if link_url.startswith(root_url):
                     # link intern, search through the catalog
                     relative_path = '/' + re.findall(root_url + '(.*)', link_url)[0]
                     url_to_search = '/'.join(portal.getPhysicalPath()) + relative_path
