@@ -1,11 +1,10 @@
 Changelog
 =========
 
-2.16 (unreleased)
+2.16 (2017-03-09)
 -----------------
 
-- Nothing changed yet.
-
+* existing content i forms per link intern [alberto.duran]
 
 2.15 (2017-02-15)
 -----------------
