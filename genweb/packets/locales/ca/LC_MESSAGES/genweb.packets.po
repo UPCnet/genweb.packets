@@ -35,25 +35,25 @@ msgid "Fitxa de grau"
 msgstr "Fitxa de grau"
 
 msgid "Informació sobre un estudi d'un grau específic"
-msgstr "<p>Fitxa amb la informació bàsica d'un grau.</p><p class=\"muted\">Indiqueu el codi UPC de l’estudi que l’identifica a PRISMA.</p><p class=\"muted\">Exemple: el codi UPC del Grau en Enginyeria Física és <strong>823.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/ca/serveis-web/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">Llista dels codis UPC dels estudis de grau <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></a><strong>.<br></strong></p></p>"
+msgstr "<p>Fitxa amb la informació bàsica d'un grau.</p><p class=\"muted\">Indiqueu el codi UPC de l’estudi que l’identifica a PRISMA.</p><p class=\"muted\">Exemple: el codi UPC del Grau en Enginyeria Física és <strong>823.</strong></p><p><a target=\"_blank\" href=\"https://www.upc.edu/comunicacio/ca/serveis-web/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">Llista dels codis UPC dels estudis de grau <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></a><strong>.<br></strong></p></p>"
 
 msgid "Pla d'estudi de grau"
 msgstr "Pla d'estudi de grau"
 
 msgid "Informació sobre el pla d'estudis d'un grau específic"
-msgstr "<p>Pla d'estudis d'un grau amb accés a les guies docents.</p><p class=\"muted\">Indiqueu el codi UPC del grau que l’identifica a PRISMA.</p><p class=\"muted\">Exemple: el codi UPC del Grau en Enginyeria Física és <strong>823.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/ca/serveis-web/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">Llista dels codis UPC dels estudis de grau <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></a>.</p>"
+msgstr "<p>Pla d'estudis d'un grau amb accés a les guies docents.</p><p class=\"muted\">Indiqueu el codi UPC del grau que l’identifica a PRISMA.</p><p class=\"muted\">Exemple: el codi UPC del Grau en Enginyeria Física és <strong>823.</strong></p><p><a target=\"_blank\" href=\"https://www.upc.edu/comunicacio/ca/serveis-web/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">Llista dels codis UPC dels estudis de grau <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></a>.</p>"
 
 msgid "Fitxa de màster"
 msgstr "Fitxa de màster"
 
 msgid "Informació sobre un màster específic"
-msgstr "<p>Fitxa amb la informació bàsica d'un màster.</p><p class=\"muted\">Indiqueu l'identificador del màster al sistema d'informació del Servei de Comunicació.</p><p class=\"muted\">Exemple: l'identificador del Màster universitari en Aqüicultura és <strong>19.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/ca/serveis-web/continguts-upc/identificadors-dels-estudis-de-master\" class=\"external-link\">Llista dels identificadors dels estudis de màster <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></a><strong>.<br></strong></p>"
+msgstr "<p>Fitxa amb la informació bàsica d'un màster.</p><p class=\"muted\">Indiqueu l'identificador del màster al sistema d'informació del Servei de Comunicació.</p><p class=\"muted\">Exemple: l'identificador del Màster universitari en Aqüicultura és <strong>19.</strong></p><p><a target=\"_blank\" href=\"https://www.upc.edu/comunicacio/ca/serveis-web/continguts-upc/identificadors-dels-estudis-de-master\" class=\"external-link\">Llista dels identificadors dels estudis de màster <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></a><strong>.<br></strong></p>"
 
 msgid "Pla d'estudis de màster"
 msgstr "Pla d'estudis de màster"
 
 msgid "Informació sobre un pla d'estudis de màster específic"
-msgstr "<p>Disponible per tots els màsters excepte els interuniversitaris.</p><p>Pla d’estudis d’un màster amb accés a les guies docents.</p><p class=\"muted\">Indiqueu l'identificador del màster al sistema d'informació del Servei de Comunicació.</p><p class=\"muted\">Exemple: l'identificador del Màster universitari en Enginyeria de l'Energia és <strong>35.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/ca/serveis-web/continguts-upc/identificadors-dels-estudis-de-master\" class=\"external-link\">Llista dels identificadors dels estudis de màster <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></a><strong>.<br></strong></p>"
+msgstr "<p>Disponible per tots els màsters excepte els interuniversitaris.</p><p>Pla d’estudis d’un màster amb accés a les guies docents.</p><p class=\"muted\">Indiqueu l'identificador del màster al sistema d'informació del Servei de Comunicació.</p><p class=\"muted\">Exemple: l'identificador del Màster universitari en Enginyeria de l'Energia és <strong>35.</strong></p><p><a target=\"_blank\" href=\"https://www.upc.edu/comunicacio/ca/serveis-web/continguts-upc/identificadors-dels-estudis-de-master\" class=\"external-link\">Llista dels identificadors dels estudis de màster <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(obriu en una finestra nova)\"></a><strong>.<br></strong></p>"
 
 msgid "Grups de recerca"
 msgstr "Grups de recerca"

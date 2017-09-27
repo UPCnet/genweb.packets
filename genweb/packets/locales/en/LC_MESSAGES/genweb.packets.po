@@ -35,25 +35,25 @@ msgid "Fitxa de grau"
 msgstr "Bachelor’s degree file"
 
 msgid "Informació sobre un estudi d'un grau específic"
-msgstr "<p>File containing basic information on a bachelor’s degree</p><p class=\"muted\"><strong>Parameter:</strong> UPC code of the bachelor’s degree for PRISMA</p><p class=\"muted\">For example, the UPC code of the bachelor's degree in Engineering Physics is <strong>823.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/www/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">UPC codes of the bachelor’s degree <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Open new window)\"></a><strong>.<br></strong></p><p class=\"muted\"><strong>Select: </strong>UPC code</p></p>"
+msgstr "<p>File containing basic information on a bachelor’s degree</p><p class=\"muted\"><strong>Parameter:</strong> UPC code of the bachelor’s degree for PRISMA</p><p class=\"muted\">For example, the UPC code of the bachelor's degree in Engineering Physics is <strong>823.</strong></p><p><a target=\"_blank\" href=\"https://www.upc.edu/comunicacio/ca/www/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">UPC codes of the bachelor’s degree <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Open new window)\"></a><strong>.<br></strong></p><p class=\"muted\"><strong>Select: </strong>UPC code</p></p>"
 
 msgid "Pla d'estudi de grau"
 msgstr "Bachelor’s degree curriculum"
 
 msgid "Informació sobre el pla d'estudis d'un grau específic"
-msgstr "<p>Curriculum for a bachelor’s degree and access to the course guide.</p><p class=\"muted\"><strong>Parameter:</strong> UPC code of the bachelor’s degree for PRISMA.</p><p class=\"muted\">For example, the UPC code of the bachelor's degree in Engineering Physics is <strong>823.</strong></p><p><a target=\"_blank\" href=\"http://www.upc.edu/comunicacio/www/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">UPC codes of the bachelor’s degree <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Open new window)\"></a>.</p><p class=\"muted\"><strong>Select: </strong>UPC code</p>"
+msgstr "<p>Curriculum for a bachelor’s degree and access to the course guide.</p><p class=\"muted\"><strong>Parameter:</strong> UPC code of the bachelor’s degree for PRISMA.</p><p class=\"muted\">For example, the UPC code of the bachelor's degree in Engineering Physics is <strong>823.</strong></p><p><a target=\"_blank\" href=\"https://www.upc.edu/comunicacio/ca/www/continguts-upc/codis-upc-del-estudis-de-grau\" class=\"external-link\">UPC codes of the bachelor’s degree <img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Open new window)\"></a>.</p><p class=\"muted\"><strong>Select: </strong>UPC code</p>"
 
 msgid "Fitxa de màster"
 msgstr "Master’s degree file"
 
 msgid "Informació sobre un màster específic"
-msgstr "<p>File containing basic information on a master’s degree.</p><p class=\"muted\"><strong>Parameter:</strong> Identifier of the master’s degree.</p><p><a target=\"_blank\" href=\"https://www.upc.edu/comunicacio/www/continguts-upc/identificadors-dels-estudis-de-master\" class=\"external-link\">Identifiers of the master’s degree<img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Open new window)\"></a>.</p><p class=\"muted\"><strong>Select: </strong>Identifier</p>"
+msgstr "<p>File containing basic information on a master’s degree.</p><p class=\"muted\"><strong>Parameter:</strong> Identifier of the master’s degree.</p><p><a target=\"_blank\" href=\"https://www.upc.edu/comunicacio/ca/www/continguts-upc/identificadors-dels-estudis-de-master\" class=\"external-link\">Identifiers of the master’s degree<img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Open new window)\"></a>.</p><p class=\"muted\"><strong>Select: </strong>Identifier</p>"
 
 msgid "Pla d'estudis de màster"
 msgstr "Master’s degree curriculum"
 
 msgid "Informació sobre un pla d'estudis de màster específic"
-msgstr "<p>Available for all master except interuniversity</p><p>Curriculum for a master’s degree and access to the course guide.</p><p class=\"muted\"><strong>Parameter:</strong> Identifier of the master’s degree.</p><p><a target=\"_blank\" href=\"https://www.upc.edu/comunicacio/www/continguts-upc/identificadors-dels-estudis-de-master\" class=\"external-link\">Identifiers of the master’s degree<img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Open new window)\"></a>.</p><p class=\"muted\"><strong>Select: </strong>Identifier</p>"
+msgstr "<p>Available for all master except interuniversity</p><p>Curriculum for a master’s degree and access to the course guide.</p><p class=\"muted\"><strong>Parameter:</strong> Identifier of the master’s degree.</p><p><a target=\"_blank\" href=\"https://www.upc.edu/comunicacio/ca/www/continguts-upc/identificadors-dels-estudis-de-master\" class=\"external-link\">Identifiers of the master’s degree<img src=\"++genweb++static/images/blank_blau.png\" class=\"img_blank\" alt=\"(Open new window)\"></a>.</p><p class=\"muted\"><strong>Select: </strong>Identifier</p>"
 
 
 msgid "Grups de recerca"
