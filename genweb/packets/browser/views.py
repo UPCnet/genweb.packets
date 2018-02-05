@@ -144,7 +144,7 @@ class packetView(BrowserView):
                         content = _(u"ERROR. Charset undefined")
                 else:
                     # link extern, pyreq
-                    raw_html = requests.get(url, timeout=5)
+                    raw_html = requests.get(url, timeout=5, verify=False)
                     charset = re.findall('charset=(.*)"', raw_html.content)
                     if len(charset) > 0:
                         clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
