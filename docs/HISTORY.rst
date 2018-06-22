@@ -1,11 +1,16 @@
 Changelog
 =========
 
-2.17 (unreleased)
+2.18 (unreleased)
 -----------------
 
 - Nothing changed yet.
 
+
+2.17 (2017-11-02)
+-----------------
+
+* Change homeupc protocol [Corina Riba]
 
 2.16 (2017-03-09)
 -----------------
