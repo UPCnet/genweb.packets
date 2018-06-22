@@ -224,9 +224,11 @@ class packetView(BrowserView):
         if getattr(user, 'name', False):
             if user.name == 'Anonymous User':
                 return False
-
-        user_roles = set(plone.api.user.get_roles(user=user, obj=self.context) +
-                         plone.api.user.get_roles(user=user))
+        try:
+            user_roles = set(plone.api.user.get_roles(user=user, obj=self.context) +
+                             plone.api.user.get_roles(user=user))
+        except:
+            user_roles = set(plone.api.user.get_roles(user=user, obj=self.context))
 
         if 'Manager' in user_roles or \
            'WebMaster' in user_roles or \
