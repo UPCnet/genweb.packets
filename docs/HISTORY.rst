@@ -1,11 +1,23 @@
 Changelog
 =========
 
-2.18 (unreleased)
+2.19 (unreleased)
 -----------------
 
 - Nothing changed yet.
 
+
+2.18 (2018-06-22)
+-----------------
+
+* Merge remote-tracking branch 'origin/develop' [Corina Riba]
+* Avoid error in some packets [Corina Riba]
+* Merge pull request #1 from UPCnet/develop [Vicente Iranzo Maestre]
+*  [Vicente Iranzo Maestre]
+* updated requests get to avoid certificate verification [Vicente Iranzo Maestre]
+* updated requests get to avoid certificate verification [Vicente Iranzo Maestre]
+*  [Vicente Iranzo Maestre]
+* updated browser/views.py to avoid requests.get verifying the certificate of url. [Vicente Iranzo Maestre]
 
 2.17 (2017-11-02)
 -----------------
