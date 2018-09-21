@@ -106,8 +106,6 @@ class packetView(BrowserView):
         adapter.packet_fields.update({'lang': utils.pref_lang()})
 
         try:
-            import ipdb; ipdb.set_trace()
-
             if packet_type == 'contingut_genweb':
                 packet = adapter.packet_fields
                 urltype = packet['url_type']
