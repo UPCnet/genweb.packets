@@ -1,9 +1,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      metal:use-macro="context/main_template/macros/master"
-      i18n:domain="genweb.packets">
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  metal:use-macro="context/main_template/macros/master"
+  i18n:domain="genweb.packets">
 <head>
   <div metal:fill-slot="javascript_head_slot" tal:omit-tag="">
   </div>
@@ -28,7 +28,8 @@
           });
         })
       </script>
-    <p class="lead-small" tal:condition="view/isAlreadyConfigured">
+
+   <p class="lead-small" tal:condition="view/isAlreadyConfigured">
       <strong><tal:omit-tag i18n:translate="" tal:content="selectedPacket/packet_key"></tal:omit-tag>,</strong>
       <tal:message i18n:translate="">configurat amb l'identificador:</tal:message>
       <strong><tal:omit-tag tal:content="selectedPacket/value"></tal:omit-tag></strong>
@@ -66,8 +67,10 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h3 tal:content="python:packet[1].title">Modal header</h3>
             </div>
-            <div class="modal-body">
+           <div class="modal-body">
               <dl>
+
+
                 <tal:fields repeat="field python:packet[1].fields">
                     <dt tal:content="field">Label name</dt>
                     <dd><input type="text" tal:attributes="name python:field.lower()" /></dd>
@@ -80,6 +83,7 @@
               </dl>
 
             </div>
+
             <div class="modal-footer">
               <button class="btn" data-dismiss="modal" aria-hidden="true" i18n:translate="label_close">Close</button>
               <button type="submit" href="#" class="btn btn-primary submit" i18n:translate="label_save_changes" >Save changes</button>

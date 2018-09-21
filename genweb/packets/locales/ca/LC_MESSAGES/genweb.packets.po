@@ -85,6 +85,9 @@ msgstr "Pla d'estudi de grau"
 msgid "fitxa_grau"
 msgstr "Fitxa de grau"
 
+msgid "codi_pla_master"
+msgstr "Codi UPC del Màster"
+
 msgid "grups_recerca"
 msgstr "Grups de recerca"
 
@@ -93,6 +96,9 @@ msgstr "Fitxa de màster"
 
 msgid "grups_recerca_people"
 msgstr "Investigadors d'un grup de recerca"
+
+msgid "contingut_genweb"
+msgstr "Contingut existent"
 
 msgid "acronim"
 msgstr "acrònim"
@@ -126,3 +132,17 @@ msgstr "URL completa del contingut"
 msgid "element"
 msgstr "Element que volem mostrar, per exemple #content-core"
 
+msgid "url_type"
+msgstr "Tipus de contingut"
+
+msgid "Type of URL"
+msgstr "Tipus d'enllaç"
+
+msgid "Extern or intern link"
+msgstr "Enllaç extern o intern"
+
+msgid "Extern"
+msgstr "Extern"
+
+msgid "Intern"
+msgstr "Intern"

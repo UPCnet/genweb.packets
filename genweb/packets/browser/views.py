@@ -1,3 +1,4 @@
+from zope.site import hooks
 from zope.component import getAdapter, getAdapters
 from zope.annotation.interfaces import IAnnotations
 from Products.PloneFormGen.interfaces import IPloneFormGenForm
@@ -16,7 +17,6 @@ import plone.api
 import re
 import requests
 from requests.exceptions import RequestException, ReadTimeout
-import urlparse
 
 
 class packetEdit(BrowserView):
@@ -87,7 +87,7 @@ class packetView(BrowserView):
     def get_catalog_content(self, path_to_search):
         """ Fem una consulta al catalog, en comptes de fer un PyQuery """
         raw_html = u''
-        catalog = getToolByName(self.context, 'portal_catalog')
+        catalog = getToolByName(self, 'portal_catalog')
         """ Mirem el cas especial dels form """
         im_searching_forms = catalog(path=path_to_search, object_provides=IPloneFormGenForm.__identifier__)
         if len(im_searching_forms) > 0:
@@ -105,88 +105,66 @@ class packetView(BrowserView):
         adapter = getAdapter(self.context, IpacketDefinition, packet_type)
         adapter.packet_fields.update({'lang': utils.pref_lang()})
 
-        url = adapter.URL_schema
-        portal_url = getToolByName(self.context, "portal_url")
-        portal = portal_url.getPortalObject()
-        url_portal_nginx = portal.absolute_url()  # url (per dns) del lloc
         try:
-            url = self.get_absolute_url(url % adapter.packet_fields)
-            # check url to avoid autoreference, removing http(s) and final slash
-            link_url = re.findall('https?://(.*)', url)[0].strip('/')  # url del contingut netejada
-            parent_url = re.findall('https?://(.*)', self.context.absolute_url())[0].strip('/')  # url del pare netejada
-            root_url = re.findall('https?://(.*)', url_portal_nginx)[0].strip('/')  # url (per dns) del lloc netejada
-            if link_url != parent_url:
-                if link_url.startswith(root_url):
-                    # link intern, search through the catalog
-                    relative_path = '/' + re.findall(root_url + '(.*)', link_url)[0]
-                    url_to_search = '/'.join(portal.getPhysicalPath()) + relative_path
-                    raw_html = self.get_catalog_content(url_to_search)
+            import ipdb; ipdb.set_trace()
+
+            if packet_type == 'contingut_genweb':
+                packet = adapter.packet_fields
+                urltype = packet['url_type']
+                url = packet['url_contingut']
+
+                if urltype == 'internal':
+                    raw_html = self.get_catalog_content()()
                     charset = re.findall('charset=(.*)"', raw_html)
                     if len(charset) > 0:
                         clean_html = re.sub(r'[\n\r]?', r'', raw_html.encode(charset[0]))
                         doc = pq(clean_html)
-                        match = re.search(r'This page does not exist', clean_html)
-                        self.title = self.context.Title()  # titol per defecte
-                        if not match:
-                            if packet_type == 'contingut_genweb':
-                                element = adapter.packet_fields['element']
-                                if not element:
-                                    element = "#content-core"
-                            else:
-                                element = "#content-nucli"
-                            content = pq('<div/>').append(
-                                doc(element).outerHtml()).html(method='html')
-                            if not content:
-                                content = _(u"ERROR. This element does not exist.") + " " + element
+                        if doc(self.data.element):
+                            content = pq('<div/>').append(doc(self.data.element).outerHtml()).html(method='html')
                         else:
-                            content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
+                            content = _(u"ERROR. This element does not exist:") + " " + self.data.element
                     else:
                         content = _(u"ERROR. Charset undefined")
+
+                elif urltype == 'external':
+                    link_extern = url.lower()
+                    root_url = hooks.getSite().absolute_url()
+
+                    if root_url.startswith("http://"):
+                        root_url = root_url[7:]
+                    elif root_url.startswith("https://"):
+                        root_url = root_url[8:]
+
+                    if link_extern.startswith("http://"):
+                        link_extern = link_extern[7:]
+                    elif link_extern.startswith("https://"):
+                        link_extern = link_extern[8:]
+
+                    if link_extern.startswith(root_url):
+                        content = _(u"ERROR. This is an inner content")
+                    else:
+                        raw_html = requests.get(url, timeout=5)
+                        charset = re.findall('charset=(.*)"', raw_html.content)
+                        if len(charset) > 0:
+                            clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
+                            doc = pq(clean_html)
+                            if doc(self.data.element):
+                                content = pq('<div/>').append(doc(self.data.element).outerHtml()).html(method='html')
+                            else:
+                                content = _(u"ERROR. This element does not exist:") + " " + self.data.element
+                        else:
+                            content = _(u"ERROR. Charset undefined")
                 else:
-                    # link extern, pyreq
-                    raw_html = requests.get(url, timeout=5, verify=False)
-                    charset = re.findall('charset=(.*)"', raw_html.content)
-                    if len(charset) > 0:
-                        clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
-                        doc = pq(clean_html)
-                        match = re.search(r'This page does not exist', clean_html)
-                        self.title = self.context.Title()  # titol per defecte
-                        if not match:
-                            if packet_type == 'contingut_genweb':
-                                element = adapter.packet_fields['element']
-                                if not element:
-                                    element = "#content-core"
-                            else:
-                                element = "#content-nucli"
-                            content = pq('<div/>').append(
-                                doc(element).outerHtml()).html(method='html')
-                            if not content:
-                                content = _(u"ERROR. This element does not exist.") + " " + element
-                        else:
-                            content = _(u"ERROR: Unknown identifier. This page does not exist." + url)
-                    else:
-                        content = _(u"ERROR. Charset undefined")
-            else:
-                content = _(u"ERROR. Autoreference")
+                    content = _(u"ERROR. Review the content configuration.")
+
         except ReadTimeout:
-            content = _(u"ERROR. There was a timeout while waiting for '{0}'".format(self.get_absolute_url(self.data.url)))
+            content = _(u"ERROR. There was a timeout.")
         except RequestException:
-            content = _(u"ERROR. This URL does not exist.")
+            content = _(u"ERROR. This URL does not exist")
         except:
-            content = _(u"ERROR. Unexpected exception.")
+            content = _(u"ERROR. Unexpected exception")
 
         self.content = content
-
-    def get_absolute_url(self, url):
-        """
-        Convert relative url to absolute
-        """
-        if not ("://" in url):
-            base = self.context.__parent__.absolute_url() + '/'
-            return urlparse.urljoin(base, url)
-        else:
-            # Already absolute
-            return url
 
     def getPacket(self):
         return self.content
@@ -237,14 +215,3 @@ class packetView(BrowserView):
             return True
         else:
             return False
-
-    def absolute_url(self, url):
-        """
-        Convert relative url to absolute
-        """
-        if not ("://" in url):
-            base = self.context.__parent__.absolute_url() + '/'
-            return urlparse.urljoin(base, url)
-        else:
-            # Already absolute
-            return url
