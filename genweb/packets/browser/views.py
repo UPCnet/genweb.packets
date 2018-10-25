@@ -94,10 +94,10 @@ class packetView(BrowserView):
             raw_html = im_searching_forms[0].getObject()()
         else:
             objects = catalog(path=path_to_search)
-            try:
-                raw_html = objects[0]()
-            except:
-                raw_html = objects[0].getObject()()
+        try:
+            raw_html = objects[0]()
+        except:
+            raw_html = objects[0].getObject()
         return raw_html
 
     def getHTML(self):
@@ -110,33 +110,33 @@ class packetView(BrowserView):
                 packet = adapter.packet_fields
                 urltype = packet['url_type']
                 url = packet['url_contingut']
+                element = packet['element']
 
                 if urltype == 'internal':
-                    raw_html = self.get_catalog_content()()
-                    charset = re.findall('charset=(.*)"', raw_html)
-                    if len(charset) > 0:
-                        clean_html = re.sub(r'[\n\r]?', r'', raw_html.encode(charset[0]))
-                        doc = pq(clean_html)
-                        if doc(self.data.element):
-                            content = pq('<div/>').append(doc(self.data.element).outerHtml()).html(method='html')
+
+                    link_intern = self.clean_url(url.lower())
+                    root_url = self.clean_url(hooks.getSite().absolute_url())
+
+                    if link_intern.startswith(root_url):
+                        link_intern = link_intern.split('/', 1)[1]
+                        raw_html = self.get_catalog_content(link_intern)()
+                        charset = re.findall('charset=(.*)"', raw_html)
+                        if len(charset) > 0:
+                            clean_html = re.sub(r'[\n\r]?', r'', raw_html.encode(charset[0]))
+                            doc = pq(clean_html)
+                            if doc(element):
+                                content = pq('<div/>').append(doc(element).outerHtml()).html(method='html')
+                            else:
+                                content = _(u"ERROR. This element does not exist:") + " " + element
                         else:
-                            content = _(u"ERROR. This element does not exist:") + " " + self.data.element
+                            content = _(u"ERROR. Charset undefined")
                     else:
-                        content = _(u"ERROR. Charset undefined")
+                        content = _(u"ERROR. This is not an inner content")
 
                 elif urltype == 'external':
-                    link_extern = url.lower()
-                    root_url = hooks.getSite().absolute_url()
 
-                    if root_url.startswith("http://"):
-                        root_url = root_url[7:]
-                    elif root_url.startswith("https://"):
-                        root_url = root_url[8:]
-
-                    if link_extern.startswith("http://"):
-                        link_extern = link_extern[7:]
-                    elif link_extern.startswith("https://"):
-                        link_extern = link_extern[8:]
+                    link_extern = self.clean_url(url.lower())
+                    root_url = self.clean_url(hooks.getSite().absolute_url())
 
                     if link_extern.startswith(root_url):
                         content = _(u"ERROR. This is an inner content")
@@ -146,10 +146,10 @@ class packetView(BrowserView):
                         if len(charset) > 0:
                             clean_html = re.sub(r'[\n\r]?', r'', raw_html.content.decode(charset[0]))
                             doc = pq(clean_html)
-                            if doc(self.data.element):
-                                content = pq('<div/>').append(doc(self.data.element).outerHtml()).html(method='html')
+                            if doc(element):
+                                content = pq('<div/>').append(doc(element).outerHtml()).html(method='html')
                             else:
-                                content = _(u"ERROR. This element does not exist:") + " " + self.data.element
+                                content = _(u"ERROR. This element does not exist:") + " " + element
                         else:
                             content = _(u"ERROR. Charset undefined")
                 else:
@@ -163,6 +163,17 @@ class packetView(BrowserView):
             content = _(u"ERROR. Unexpected exception")
 
         self.content = content
+
+    def clean_url(self, url):
+        """
+        Clean http:// or https:// from a url
+        """
+        if url.startswith("http://"):
+            url = url[7:]
+        elif url.startswith("https://"):
+            url = url[8:]
+
+        return url
 
     def getPacket(self):
         return self.content
