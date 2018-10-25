@@ -1,11 +1,14 @@
 Changelog
 =========
 
-2.19 (unreleased)
+2.19 (2018-10-25)
 -----------------
 
-- Nothing changed yet.
-
+* Fix errors in Contingut UPC [r.ventura]
+* Update views.py [Corina Riba]
+* Add error message, delete test users and bus response [Corina Riba]
+* Merge remote-tracking branch 'origin/master' into develop [Corina Riba]
+* Merge remote-tracking branch 'origin/master' into develop [Corina Riba]
 
 2.18 (2018-06-22)
 -----------------
