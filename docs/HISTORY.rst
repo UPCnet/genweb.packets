@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.19 (unreleased)
+2.19 (2018-12-13)
 -----------------
 
 * Nothing changed yet
