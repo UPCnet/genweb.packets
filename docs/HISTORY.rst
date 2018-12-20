@@ -1,10 +1,9 @@
 Changelog
 =========
 
-2.20 (unreleased)
+2.20 (2018-12-20)
 -----------------
 
-- Nothing changed yet.
 
 
 2.19 (2018-12-13)
